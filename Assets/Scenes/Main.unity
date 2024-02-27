@@ -7698,6 +7698,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 596193719135425294, guid: 7dacb3c9d42ee9d46b0c4d4bf473dbb1, type: 3}
   m_PrefabInstance: {fileID: 2143651011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7059530139528266082
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.52946085
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506385194271158069, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8587899269908226367, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
+      propertyPath: m_Name
+      value: Laser Pointer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
 --- !u!1001 &8033611305723063226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7773,3 +7830,4 @@ SceneRoots:
   - {fileID: 116962619}
   - {fileID: 680453525}
   - {fileID: 1948088649}
+  - {fileID: 7059530139528266082}
