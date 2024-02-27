@@ -10,9 +10,15 @@ public class SpeechToText : MonoBehaviour
     private byte[] bytes;
     int maxtime = 5;
     bool recording;
+    string api_key;
     private readonly string fileName = "output.wav";
-    private OpenAIApi openai = new OpenAIApi("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");
+    private OpenAIApi openai;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        api_key = File.ReadAllText("api_key.txt");
+        openai = new OpenAIApi(api_key);
+    }
     void Start()
     {
         recording = false;
