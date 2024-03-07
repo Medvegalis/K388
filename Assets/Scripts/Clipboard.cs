@@ -69,8 +69,56 @@ public class Clipboard : MonoBehaviour
             }
         }
     }
-    
+
     //TODO Implement that character ';' would act as a page break
+    private void SplitToPages()
+    {
+        pageCount = lines.Length / maxLines + 1;
+        int offset = 0;
+        for (int i = 0; i < pageCount; i++)
+        {
+            //jei >8 eilutes
+            if (lines.Length > offset+8)
+            {
+                for (int k = 0; k < maxLines; k++)
+                {
+                    if (lines[offset][0] == ';')
+                    {
+                        pageCount++;
+                        offset++;
+                        break;
+                    }
+                    else
+                    {
+                        pages[i, k] = lines[offset];
+                        offset++;
+                    }
+                }
+
+            }
+            //jei <8 eilutes
+            else
+            {
+                for (int k = 0; k < lines.Length - offset; k++)
+                {
+                    if(lines[offset][0]==';')
+                    {
+                        linesOnLastPage = 0;
+                        pageCount++;
+                        offset++;
+                        break;
+                    }
+                    else
+                    {
+                        pages[i, k] = lines[offset];
+                        linesOnLastPage++;
+                        offset++;
+                    }
+                }
+            }
+        }
+    }
+    /*
     private void SplitToPages()
     {
         pageCount = lines.Length / maxLines + 1;
@@ -97,13 +145,13 @@ public class Clipboard : MonoBehaviour
             }
         }
     }
+    */
     private void SplitLongLines()
     {
         List<string> modifiedLines = new List<string>();
-
         foreach (string line in lines)
-        {
-            if (line.Length > maxCharactersInLine)
+        {     
+            if (line.Length >= maxCharactersInLine && line[maxCharactersInLine-1]=='\n')
             {
                 int splitIndex = maxCharactersInLine;
                 string firstLine = line.Substring(0, splitIndex);
