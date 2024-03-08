@@ -13,11 +13,16 @@ public class SpeechToText : MonoBehaviour
 {
     private AudioClip clip;
     private byte[] bytes;
-    int maxtime = 5;
     bool recording;
     string api_key;
     private readonly string fileName = "output.wav";
     private OpenAIApi openai;
+    private float recordDuration = 5f; // Duration to record in seconds
+    private float waitTime = 10f; // Time between recordings (10 for demo, 30 for production)
+    private float recordTimer = 0f;
+    private List<string> responses;
+    private int numberOfResponses;
+    private double wpm;
 
     [SerializeField] private TextMeshProUGUI textBox;
     private XRIDefaultInputActions controls;
@@ -32,14 +37,27 @@ public class SpeechToText : MonoBehaviour
     }
     void Start()
     {
+        responses = new List<string>();
         recording = false;
-        
+        recordTimer = Time.time + 5f; //Time until first recording(5 for demo, 10-15 for production)
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab)&&!recording)
+        if (Time.time >= recordTimer)
+        {
+            Debug.Log("Started");
+            StartRecording();
+            recordTimer = Time.time + recordDuration + waitTime;
+        }
+        if (recording && Time.time >= recordTimer - recordDuration)
+        {
+            Debug.Log("Stopped");
+            StopRecording();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab)&&!recording)
         {
             Debug.Log("Started");
             StartRecording();
@@ -77,7 +95,7 @@ public class SpeechToText : MonoBehaviour
 
     private void StartRecording()
     {
-        clip = Microphone.Start(null, false, maxtime, 44100);
+        clip = Microphone.Start(null, false, Convert.ToInt32(recordDuration), 44100);
         recording = true;
     }
 
@@ -96,8 +114,27 @@ public class SpeechToText : MonoBehaviour
             Language = "lt"
         };
         var res = await openai.CreateAudioTranscription(req);
-
         Debug.Log(res.Text.ToString());
-        textBox.text = res.Text.ToString();
+        if (res.Text.Length>1 && res.Text.Split(',').Length<30)
+        {
+            Debug.Log(res.Text.ToString());
+            responses.Add(res.Text.ToString());
+            numberOfResponses++;
+            GetWPM();
+            textBox.text = res.Text.ToString();
+        }
+    }
+
+    private void GetWPM()
+    {
+        double wordCount = 0;
+
+        for(int i=0;i<responses.Count;i++)
+        {
+            wordCount += responses[i].Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+        }
+
+        wpm=  wordCount / Convert.ToDouble(numberOfResponses)*(60.0/recordDuration);
+        Debug.Log("Wpm ="+wpm);
     }
 }

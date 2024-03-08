@@ -23,26 +23,23 @@ public class Clipboard : MonoBehaviour
         lines = text.Split('\n');
         SplitLongLines();
         SplitToPages();
-        Debug.Log(lines.Length);
-        Debug.Log(pageCount);
-        Debug.Log(linesOnLastPage);
         currentPage = -1;
     }
 
     private void Update()
     {
-        
-        if(currentPage==-1  && Input.GetKeyDown(KeyCode.RightArrow))
+
+        if (currentPage == -1 && Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentPage = 0;
             LoadPage();
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentPage>0)
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentPage > 0)
         {
             currentPage--;
             LoadPage();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow)&& currentPage<pageCount-1)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && currentPage < pageCount - 1)
         {
             currentPage++;
             LoadPage();
@@ -53,9 +50,9 @@ public class Clipboard : MonoBehaviour
     private void LoadPage()
     {
         clipboardText.text = "";
-        if (currentPage == pageCount-1)
+        if (currentPage == pageCount - 1)
         {
-            for(int i=0; i<linesOnLastPage;i++)
+            for (int i = 0; i < linesOnLastPage; i++)
             {
                 clipboardText.text += '\n' + pages[currentPage, i];
             }
@@ -64,13 +61,10 @@ public class Clipboard : MonoBehaviour
         {
             for (int i = 0; i < maxLines; i++)
             {
-                Debug.Log(currentPage);
                 clipboardText.text += '\n' + pages[currentPage, i];
             }
         }
     }
-
-    //TODO Implement that character ';' would act as a page break
     private void SplitToPages()
     {
         pageCount = lines.Length / maxLines + 1;
@@ -78,11 +72,11 @@ public class Clipboard : MonoBehaviour
         for (int i = 0; i < pageCount; i++)
         {
             //jei >8 eilutes
-            if (lines.Length > offset+8)
+            if (lines.Length > offset + 8)
             {
                 for (int k = 0; k < maxLines; k++)
                 {
-                    if (lines[offset][0] == ';')
+                    if (lines[offset].Length > 0 && lines[offset][0] == ';')
                     {
                         pageCount++;
                         offset++;
@@ -101,7 +95,7 @@ public class Clipboard : MonoBehaviour
             {
                 for (int k = 0; k < lines.Length - offset; k++)
                 {
-                    if(lines[offset][0]==';')
+                    if (lines[offset][0] == ';')
                     {
                         linesOnLastPage = 0;
                         pageCount++;
@@ -118,46 +112,32 @@ public class Clipboard : MonoBehaviour
             }
         }
     }
-    /*
-    private void SplitToPages()
-    {
-        pageCount = lines.Length / maxLines + 1;
-        for (int i = 0; i < pageCount; i++)
-        {
-            int offset = maxLines * i;
-            //jei >8 eilutes
-            if (lines.Length > maxLines * (i + 1))
-            {
-               for(int k=0; k<maxLines;k++)
-                {
-                    pages[i,k] = lines[offset+k];
-                }
-                     
-            }
-            //jei <8 eilutes(last iteration)
-            else
-            {
-                for(int k=0;k<lines.Length-i*8;k++)
-                {
-                    pages[i, k] = lines[offset+k];
-                    linesOnLastPage++;
-                }
-            }
-        }
-    }
-    */
+
     private void SplitLongLines()
     {
-        List<string> modifiedLines = new List<string>();
+        List<string> modifiedLines = new();
         foreach (string line in lines)
-        {     
-            if (line.Length >= maxCharactersInLine && line[maxCharactersInLine-1]=='\n')
+        {
+            if (line.Length > maxCharactersInLine && line[maxCharactersInLine] != '\r')
             {
-                int splitIndex = maxCharactersInLine;
-                string firstLine = line.Substring(0, splitIndex);
-                string secondLine = line.Substring(splitIndex);
-                modifiedLines.Add(firstLine);
-                modifiedLines.Add(secondLine);
+                bool done = false;
+                string temp = line;
+                while (!done)
+                {
+                    int splitIndex = maxCharactersInLine;
+                    string firstLine = temp.Substring(0, splitIndex);
+                    modifiedLines.Add(firstLine);
+                    string theRest = temp.Substring(splitIndex);
+                    if (theRest.Length > maxCharactersInLine && line[maxCharactersInLine] != '\r')
+                    {
+                        temp = theRest;
+                    }
+                    else
+                    {
+                        modifiedLines.Add(theRest);
+                        done = true;
+                    }
+                }
             }
             else
             {
