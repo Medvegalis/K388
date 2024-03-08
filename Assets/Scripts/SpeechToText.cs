@@ -4,6 +4,11 @@ using UnityEngine;
 using System.IO;
 using OpenAI;
 using Samples.Whisper;
+using TMPro;
+using UnityEngine.InputSystem;
+using System;
+using System.Security.Cryptography;
+
 public class SpeechToText : MonoBehaviour
 {
     private AudioClip clip;
@@ -13,15 +18,22 @@ public class SpeechToText : MonoBehaviour
     string api_key;
     private readonly string fileName = "output.wav";
     private OpenAIApi openai;
+
+    [SerializeField] private TextMeshProUGUI textBox;
+    private XRIDefaultInputActions controls;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
         api_key = File.ReadAllText("api_key.txt");
         openai = new OpenAIApi(api_key);
+        controls = new XRIDefaultInputActions();
     }
     void Start()
     {
         recording = false;
+        
     }
 
     // Update is called once per frame
@@ -38,6 +50,29 @@ public class SpeechToText : MonoBehaviour
             StopRecording();
         }
 
+        if (controls.XRILeftHand.Transcript.WasPerformedThisFrame() && !recording)
+        {
+            Debug.Log("Started");
+            textBox.text = "Klausoma...";
+            StartRecording();
+        }
+        else if (recording && (Microphone.GetPosition(null) >= clip.samples || controls.XRILeftHand.Transcript.WasPerformedThisFrame()))
+        {
+            Debug.Log("Stopped");
+            textBox.text = "Generuojama...";
+            StopRecording();
+        }
+
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     private void StartRecording()
@@ -63,6 +98,6 @@ public class SpeechToText : MonoBehaviour
         var res = await openai.CreateAudioTranscription(req);
 
         Debug.Log(res.Text.ToString());
-
+        textBox.text = res.Text.ToString();
     }
 }
