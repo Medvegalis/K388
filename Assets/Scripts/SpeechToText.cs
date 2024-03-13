@@ -45,17 +45,18 @@ public class SpeechToText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= recordTimer)
-        {
-            Debug.Log("Started");
-            StartRecording();
-            recordTimer = Time.time + recordDuration + waitTime;
-        }
-        if (recording && Time.time >= recordTimer - recordDuration)
-        {
-            Debug.Log("Stopped");
-            StopRecording();
-        }
+        //Recording makes unity freeze for a second. Turned it off for demonstration
+        //if (Time.time >= recordTimer)
+        //{
+        //    Debug.Log("Started");
+        //    StartRecording();
+        //    recordTimer = Time.time + recordDuration + waitTime;
+        //}
+        //if (recording && Time.time >= recordTimer - recordDuration)
+        //{
+        //    Debug.Log("Stopped");
+        //    StopRecording();
+        //}
 
         if (Input.GetKeyDown(KeyCode.Tab)&&!recording)
         {
