@@ -36,21 +36,16 @@ public class LookTimers : MonoBehaviour
             }
             else
             {
-                // If the ray hits something other than the target objects, reset the look time
+                // If the ray doesn't hit anything, reset the look time
                 currentLookTime = 0.0f;
-            }
-        }
-        else
-        {
-            // If the ray doesn't hit anything, reset the look time
-            currentLookTime = 0.0f;
-            currentLookAwayTime += Time.deltaTime;
+                currentLookAwayTime += Time.deltaTime;
 
-            if (currentLookAwayTime >= lookAwayThreshold)
-            {
-                // If the player has looked away from all target objects for too long
-                Debug.Log("Player has looked away from all target objects for " + currentLookAwayTime + " seconds.");
-                // Do something here, like call a function or trigger an event
+                if (currentLookAwayTime >= lookAwayThreshold)
+                {
+                    // If the player has looked away from all target objects for too long
+                    Debug.Log("Player has looked away from all target objects for " + currentLookAwayTime + " seconds.");
+                    // Do something here, like call a function or trigger an event
+                }
             }
         }
     }
