@@ -25,6 +25,7 @@ public class SpeechToText : MonoBehaviour
     private double wpm;
 
     [SerializeField] private TextMeshProUGUI textBox;
+    [SerializeField] private TextMeshProUGUI textBoxWPM;
     private XRIDefaultInputActions controls;
 
 
@@ -96,7 +97,11 @@ public class SpeechToText : MonoBehaviour
 
     private void StartRecording()
     {
-        clip = Microphone.Start(null, false, Convert.ToInt32(recordDuration), 44100);
+        if (AudioManager.instance.micDeviceName != "")
+            clip = Microphone.Start(AudioManager.instance.micDeviceName, false, Convert.ToInt32(recordDuration), 44100);
+        else
+            clip = Microphone.Start(null, false, Convert.ToInt32(recordDuration), 44100);
+
         recording = true;
     }
 
@@ -136,6 +141,7 @@ public class SpeechToText : MonoBehaviour
         }
 
         wpm=  wordCount / Convert.ToDouble(numberOfResponses)*(60.0/recordDuration);
+        textBoxWPM.text = "Wpm =" + wpm;
         Debug.Log("Wpm ="+wpm);
     }
 }
