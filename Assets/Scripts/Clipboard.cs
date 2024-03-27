@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
+using System.Net.Sockets;
+using UnityEngine.iOS;
+
 public class Clipboard : MonoBehaviour
 {
     private string[] lines;
@@ -29,6 +33,39 @@ public class Clipboard : MonoBehaviour
     private void Update()
     {
 
+        if (InputManager.instance.playerControls.Vr.Pirmary.WasPerformedThisFrame())
+        {
+            Debug.Log("Pressed primary");
+        }
+        VrControls();
+        //PcControls();
+    }
+
+    private void VrControls()
+    {
+        if (InputManager.instance.currentRightHeldObjName == "InteractableCliboard")
+        {
+            Debug.Log("Holding clipboard");
+            if (currentPage == -1 && InputManager.instance.playerControls.Vr.Pirmary.WasPerformedThisFrame())
+            {
+                currentPage = 0;
+                LoadPage();
+            }
+            else if (InputManager.instance.playerControls.Vr.Secondary.WasPerformedThisFrame() && currentPage > 0)
+            {
+                currentPage--;
+                LoadPage();
+            }
+            else if (InputManager.instance.playerControls.Vr.Pirmary.WasPerformedThisFrame() && currentPage < pageCount - 1)
+            {
+                currentPage++;
+                LoadPage();
+            }
+        }
+    }
+
+    private void PcControls()
+    {
         if (currentPage == -1 && Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentPage = 0;

@@ -50,25 +50,113 @@ public partial class @ControlScheme: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Vr"",
+            ""id"": ""6d27ffb6-53a4-424e-aca0-61c169577e32"",
+            ""actions"": [
+                {
+                    ""name"": ""Pirmary"",
+                    ""type"": ""Button"",
+                    ""id"": ""862d72fb-f4f2-4130-acd6-9e05506bc677"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Secondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""5df1ccd3-463e-4773-9776-eaab0152eda9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f1c86e0-8500-4da0-8775-c78759b41d56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Trigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""c48389f3-f84e-473b-99ee-7da0f083b2ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""242dcfb2-b80d-4f02-adb0-f5dcf8208d74"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pirmary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71b0fb02-8108-4be6-ba32-81586d111f7b"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49eb06f2-cd7a-4400-97ae-99f7ff83c0e6"",
+                    ""path"": ""<XRController>{LeftHand}/menu"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f5d0663-5153-4882-a646-c2b42ab99bcc"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
         {
             ""name"": ""Player"",
             ""bindingGroup"": ""Player"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
+            ""devices"": []
         }
     ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        // Vr
+        m_Vr = asset.FindActionMap("Vr", throwIfNotFound: true);
+        m_Vr_Pirmary = m_Vr.FindAction("Pirmary", throwIfNotFound: true);
+        m_Vr_Secondary = m_Vr.FindAction("Secondary", throwIfNotFound: true);
+        m_Vr_Pause = m_Vr.FindAction("Pause", throwIfNotFound: true);
+        m_Vr_Trigger = m_Vr.FindAction("Trigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -172,6 +260,76 @@ public partial class @ControlScheme: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Vr
+    private readonly InputActionMap m_Vr;
+    private List<IVrActions> m_VrActionsCallbackInterfaces = new List<IVrActions>();
+    private readonly InputAction m_Vr_Pirmary;
+    private readonly InputAction m_Vr_Secondary;
+    private readonly InputAction m_Vr_Pause;
+    private readonly InputAction m_Vr_Trigger;
+    public struct VrActions
+    {
+        private @ControlScheme m_Wrapper;
+        public VrActions(@ControlScheme wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pirmary => m_Wrapper.m_Vr_Pirmary;
+        public InputAction @Secondary => m_Wrapper.m_Vr_Secondary;
+        public InputAction @Pause => m_Wrapper.m_Vr_Pause;
+        public InputAction @Trigger => m_Wrapper.m_Vr_Trigger;
+        public InputActionMap Get() { return m_Wrapper.m_Vr; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(VrActions set) { return set.Get(); }
+        public void AddCallbacks(IVrActions instance)
+        {
+            if (instance == null || m_Wrapper.m_VrActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_VrActionsCallbackInterfaces.Add(instance);
+            @Pirmary.started += instance.OnPirmary;
+            @Pirmary.performed += instance.OnPirmary;
+            @Pirmary.canceled += instance.OnPirmary;
+            @Secondary.started += instance.OnSecondary;
+            @Secondary.performed += instance.OnSecondary;
+            @Secondary.canceled += instance.OnSecondary;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Trigger.started += instance.OnTrigger;
+            @Trigger.performed += instance.OnTrigger;
+            @Trigger.canceled += instance.OnTrigger;
+        }
+
+        private void UnregisterCallbacks(IVrActions instance)
+        {
+            @Pirmary.started -= instance.OnPirmary;
+            @Pirmary.performed -= instance.OnPirmary;
+            @Pirmary.canceled -= instance.OnPirmary;
+            @Secondary.started -= instance.OnSecondary;
+            @Secondary.performed -= instance.OnSecondary;
+            @Secondary.canceled -= instance.OnSecondary;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Trigger.started -= instance.OnTrigger;
+            @Trigger.performed -= instance.OnTrigger;
+            @Trigger.canceled -= instance.OnTrigger;
+        }
+
+        public void RemoveCallbacks(IVrActions instance)
+        {
+            if (m_Wrapper.m_VrActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IVrActions instance)
+        {
+            foreach (var item in m_Wrapper.m_VrActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_VrActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public VrActions @Vr => new VrActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -184,5 +342,12 @@ public partial class @ControlScheme: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IVrActions
+    {
+        void OnPirmary(InputAction.CallbackContext context);
+        void OnSecondary(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnTrigger(InputAction.CallbackContext context);
     }
 }
