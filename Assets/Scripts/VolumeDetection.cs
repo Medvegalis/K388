@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using System;
 
 public class VolumeDetection : MonoBehaviour
 {
@@ -13,6 +16,13 @@ public class VolumeDetection : MonoBehaviour
     private float[] rmsValues;
     private int currentIndex = 0;
     private float timeSinceLastUpdate = 0;
+    private int micPosition;
+    float[] waveData;
+    string microphoneName;
+    float rms;
+    float averageRms;
+
+    public TextMeshProUGUI textUi;
 
     void Start()
     {
@@ -30,7 +40,7 @@ public class VolumeDetection : MonoBehaviour
         }
 
         // Use the first available microphone
-        string microphoneName = devices[microphoneNR];
+        microphoneName = devices[microphoneNR];
 
         // Start recording from the selected microphone
         audioSource.clip = Microphone.Start(microphoneName, true, 1, sampleRate);
@@ -41,21 +51,20 @@ public class VolumeDetection : MonoBehaviour
         // Initialize array for storing RMS values
         int numSamples = Mathf.RoundToInt(sampleRate * updateInterval);
         rmsValues = new float[numSamples];
+        waveData = new float[512]; // Adjust the size as needed
     }
 
     void Update()
     {
         // Calculate volume level (RMS) of the captured audio
-        float[] waveData = new float[512]; // Adjust the size as needed
-        string microphoneName = Microphone.devices[microphoneNR];
-        int micPosition = Microphone.GetPosition(microphoneName) - (waveData.Length + 1);
+        micPosition = Microphone.GetPosition(microphoneName) - (waveData.Length + 1);
         if (micPosition < 0)
             return;
 
         audioSource.clip.GetData(waveData, micPosition);
 
         // Calculate RMS (root mean square) to get volume
-        float rms = 0;
+         rms = 0;
         foreach (float sample in waveData)
         {
             rms += sample * sample;
@@ -76,15 +85,17 @@ public class VolumeDetection : MonoBehaviour
         if (timeSinceLastUpdate >= updateInterval)
         {
             // Calculate average RMS over the update interval
-            float averageRms = 0;
+             averageRms = 0;
             foreach (float value in rmsValues)
             {
                 averageRms += value;
             }
             averageRms /= rmsValues.Length;
-
-            // Display the average RMS
-            Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageRms);
+            double averageDb = Math.Round(10 * Mathf.Log10(averageRms), 0);
+            // Display the average RMS in db
+            Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
+            
+            textUi.text = averageDb.ToString();
             currentIndex = 0;
             // Reset time since last update
             timeSinceLastUpdate = 0;
