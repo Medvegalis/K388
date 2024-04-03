@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Net.Sockets;
-using UnityEngine.iOS;
 
 public class Clipboard : MonoBehaviour
 {

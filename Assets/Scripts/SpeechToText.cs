@@ -110,7 +110,7 @@ public class SpeechToText : MonoBehaviour
         Microphone.End(null);
         recording = false;
 
-        byte[] data = SaveWav.Save(fileName, clip);
+        byte[] data = Samples.Whisper.SaveWav.Save(fileName, clip);
 
         var req = new CreateAudioTranscriptionsRequest
         {
@@ -120,6 +120,7 @@ public class SpeechToText : MonoBehaviour
             Language = "lt"
         };
         var res = await openai.CreateAudioTranscription(req);
+        
         Debug.Log(res.Text.ToString());
         if (res.Text.Length>1 && res.Text.Split(',').Length<30)
         {
