@@ -27,6 +27,8 @@ public class AudioSettingsMenu : MonoBehaviour
 
         MicDropdown.AddOptions(getDeviceList);
 
+        MicDropdown.value = AudioManager.instance.micIndex;
+
 
         MicDropdown.onValueChanged.AddListener(ChangeDefaultMic);
     }
@@ -34,6 +36,7 @@ public class AudioSettingsMenu : MonoBehaviour
     void ChangeDefaultMic(int value)
     { 
         AudioManager.instance.micDeviceName = Microphone.devices[value];
+        AudioManager.instance.micIndex = value;
     }
 
 }

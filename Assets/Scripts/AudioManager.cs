@@ -13,10 +13,20 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Slider masterSlider;
 
     public string micDeviceName = null;
+    public int micIndex = 0;
 
     private void Awake()
     {
+
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
+
         masterSlider.onValueChanged.AddListener(setMasterVolume);
     }
 

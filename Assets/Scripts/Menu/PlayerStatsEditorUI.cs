@@ -16,7 +16,9 @@ public class PlayerStatsEditorUI : MonoBehaviour
     private float heightIncramentAmount = 0.01f;
     private float speedIncramentAmount = 1f;
 
-    private float currentHeight = 180;
+    private static float currentHeight = 180;
+    private static float currentSpeed = 3;
+    private static float currentHeightCord = 1.4f;
 
     private void OnEnable()
     {
@@ -24,14 +26,24 @@ public class PlayerStatsEditorUI : MonoBehaviour
         heightText.text = cameraTransform.position.y.ToString();
     }
 
+    private void Start()
+    {
+        dynamicMoveProvider.moveSpeed = currentSpeed;
+        cameraTransform.position = new Vector3(cameraTransform.position.x, currentHeightCord, cameraTransform.position.z);
+        heightText.text = currentHeight.ToString();
+        moveSpeedText.text = currentSpeed.ToString();
+    }
+
     public void IncreaseHeight()
     {
         float subtr = cameraTransform.position.y + heightIncramentAmount;
+        Debug.Log("subtr = " + subtr);
 
-        if(subtr < 1)
+        if(subtr < 1.8f)
         {
             Vector3 amount = new Vector3(0, heightIncramentAmount,0);
             cameraTransform.position += amount;
+            currentHeightCord = cameraTransform.position.y;
             heightText.text = (currentHeight + 1).ToString();
             currentHeight += 1;
         }
@@ -44,6 +56,7 @@ public class PlayerStatsEditorUI : MonoBehaviour
         {
             Vector3 amount = new Vector3(0, heightIncramentAmount, 0);
             cameraTransform.position -= amount;
+            currentHeightCord = cameraTransform.position.y;
             heightText.text = (currentHeight - 1).ToString();
             currentHeight -= 1;
         }
@@ -57,6 +70,8 @@ public class PlayerStatsEditorUI : MonoBehaviour
             dynamicMoveProvider.moveSpeed += speedIncramentAmount;
             moveSpeedText.text = dynamicMoveProvider.moveSpeed.ToString();
         }
+
+        currentSpeed = dynamicMoveProvider.moveSpeed;
     }
     public void DecreaseSpeed()
     {
@@ -67,6 +82,8 @@ public class PlayerStatsEditorUI : MonoBehaviour
             dynamicMoveProvider.moveSpeed -= speedIncramentAmount;
             moveSpeedText.text = dynamicMoveProvider.moveSpeed.ToString();
         }
+
+        currentSpeed = dynamicMoveProvider.moveSpeed;
     }
 
 }

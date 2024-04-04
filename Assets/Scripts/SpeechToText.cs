@@ -1,13 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using OpenAI;
-using Samples.Whisper;
 using TMPro;
-using UnityEngine.InputSystem;
 using System;
-using System.Security.Cryptography;
+using UnityEngine.UI;
+
 
 public class SpeechToText : MonoBehaviour
 {
@@ -28,6 +26,9 @@ public class SpeechToText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textBoxWPM;
     private XRIDefaultInputActions controls;
 
+    [SerializeField] private Button startStopButton;
+    [SerializeField] private Text buttonText;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -41,6 +42,9 @@ public class SpeechToText : MonoBehaviour
         responses = new List<string>();
         recording = false;
         recordTimer = Time.time + 5f; //Time until first recording(5 for demo, 10-15 for production)
+
+        if(startStopButton != null)
+            startStopButton.onClick.AddListener(() => ButtonAction());
     }
 
     // Update is called once per frame
@@ -83,6 +87,24 @@ public class SpeechToText : MonoBehaviour
             StopRecording();
         }
 
+    }
+
+    private void ButtonAction()
+    {
+        if (!recording)
+        {
+            Debug.Log("Started");
+            textBox.text = "Klausoma...";
+            buttonText.text = "Sustabdyti kalba";
+            StartRecording();
+        }
+        else if (recording)
+        {
+            Debug.Log("Stopped");
+            textBox.text = "Generuojama...";
+            buttonText.text = "Pradeti kalba";
+            StopRecording();
+        }
     }
 
     private void OnEnable()
@@ -130,6 +152,8 @@ public class SpeechToText : MonoBehaviour
             GetWPM();
             textBox.text = res.Text.ToString();
         }
+
+        buttonText.text = "Pradeti kalba";
     }
 
     private void GetWPM()

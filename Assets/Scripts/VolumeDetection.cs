@@ -93,7 +93,7 @@ public class VolumeDetection : MonoBehaviour
             averageRms /= rmsValues.Length;
             double averageDb = Math.Round(10 * Mathf.Log10(averageRms), 0);
             // Display the average RMS in db
-            Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
+           //Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
             
             textUi.text = averageDb.ToString();
             currentIndex = 0;

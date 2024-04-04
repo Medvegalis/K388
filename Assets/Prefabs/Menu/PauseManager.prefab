@@ -1906,7 +1906,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3693367403219126667}
   - component: {fileID: 5254885381884908899}
-  - component: {fileID: 8254482325489729147}
   m_Layer: 5
   m_Name: GameSettings
   m_TagString: Untagged
@@ -1964,22 +1963,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &8254482325489729147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3353913024185732554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe53bbc83a406af42a69430721611cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 0}
-  dynamicMoveProvider: {fileID: 0}
-  moveSpeedText: {fileID: 556655216726984033}
-  heightText: {fileID: 4520475470471078538}
 --- !u!1 &3454540727259143097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,6 +4019,7 @@ GameObject:
   - component: {fileID: 5076641207801735377}
   - component: {fileID: 2745510870921532392}
   - component: {fileID: 7257955086537745556}
+  - component: {fileID: 3423846679360648129}
   m_Layer: 5
   m_Name: PauseManager
   m_TagString: Untagged
@@ -4227,6 +4211,22 @@ MonoBehaviour:
   m_MinAngleAllowed: 0.1
   m_MaxAngleAllowed: 5
   m_TimeUntilThresholdReachesMaxAngle: 3
+--- !u!114 &3423846679360648129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664799557279048537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe53bbc83a406af42a69430721611cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  dynamicMoveProvider: {fileID: 0}
+  moveSpeedText: {fileID: 556655216726984033}
+  heightText: {fileID: 4520475470471078538}
 --- !u!1 &7693383537743293653
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,7 +4622,7 @@ PrefabInstance:
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8254482325489729147}
+      objectReference: {fileID: 3423846679360648129}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -4808,7 +4808,7 @@ PrefabInstance:
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8254482325489729147}
+      objectReference: {fileID: 3423846679360648129}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -4978,7 +4978,7 @@ PrefabInstance:
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8254482325489729147}
+      objectReference: {fileID: 3423846679360648129}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -5148,7 +5148,7 @@ PrefabInstance:
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8254482325489729147}
+      objectReference: {fileID: 3423846679360648129}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
