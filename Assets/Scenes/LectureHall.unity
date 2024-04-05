@@ -4311,7 +4311,7 @@ PrefabInstance:
     - target: {fileID: 1946320600069674546, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
       propertyPath: slides
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 502292543}
     - target: {fileID: 1946320600069674546, guid: c9cee0c2817033b4dba794c6fce49b5e, type: 3}
       propertyPath: clicksound
       value: 
