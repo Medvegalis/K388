@@ -7,6 +7,7 @@ public class LaserPointer : MonoBehaviour
 {
     public Transform laserOrigin;
     public float range = 50f;
+    public AudioSource clicksound;
     LineRenderer laserLine;
 
     public PdfReader slides;
@@ -36,7 +37,8 @@ public class LaserPointer : MonoBehaviour
         {
             if (InputManager.instance.playerControls.Vr.Trigger.WasPerformedThisFrame())
             {
-                if(On == false)
+                clicksound.Play();
+                if (On == false)
                 {
                     On = true;
                     Vector3 laserDirection = laserOrigin.up;
@@ -54,11 +56,13 @@ public class LaserPointer : MonoBehaviour
 
             if (InputManager.instance.playerControls.Vr.Pirmary.WasPerformedThisFrame())
             {
+                clicksound.Play();
                 slides.ShowNextPage();
             }
 
             if (InputManager.instance.playerControls.Vr.Secondary.WasPerformedThisFrame())
             {
+                clicksound.Play();
                 slides.ShowPrevPage();
             }
         }
@@ -68,7 +72,6 @@ public class LaserPointer : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-
             Vector3 laserDirection = laserOrigin.up;
             Vector3 laserEndPosition = laserOrigin.position + laserDirection * range;
             laserLine.SetPosition(0, laserOrigin.position);
@@ -76,6 +79,8 @@ public class LaserPointer : MonoBehaviour
             laserLine.enabled = true;
         }
         else
+        {
             laserLine.enabled = false;
+        }
     }
 }
