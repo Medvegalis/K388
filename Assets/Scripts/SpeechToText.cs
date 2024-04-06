@@ -20,7 +20,7 @@ public class SpeechToText : MonoBehaviour
     private float recordTimer = 0f;
     private List<string> responses;
     private int numberOfResponses;
-    private double wpm;
+    public double wpm;
 
     [SerializeField] private TextMeshProUGUI textBox;
     [SerializeField] private TextMeshProUGUI textBoxWPM;

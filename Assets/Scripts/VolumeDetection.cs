@@ -22,6 +22,10 @@ public class VolumeDetection : MonoBehaviour
     float rms;
     float averageRms;
 
+    public float avarageVolume;
+    private int sampleCount;
+    private List<double> samples;
+
     public TextMeshProUGUI textUi;
 
     void Start()
@@ -93,12 +97,14 @@ public class VolumeDetection : MonoBehaviour
             averageRms /= rmsValues.Length;
             double averageDb = Math.Round(10 * Mathf.Log10(averageRms), 0);
             // Display the average RMS in db
-           //Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
+            //Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
             
             textUi.text = averageDb.ToString();
             currentIndex = 0;
             // Reset time since last update
             timeSinceLastUpdate = 0;
+            samples.Add(averageDb);
+            GetAvarageDB();
         }
     }
 
@@ -107,5 +113,18 @@ public class VolumeDetection : MonoBehaviour
         // Stop microphone when the object is disabled
         string microphoneName = Microphone.devices[microphoneNR];
         Microphone.End(microphoneName);
+    }
+
+    void GetAvarageDB()
+    {
+        double volume = 0;
+
+        for (int i = 0; i < samples.Count; i++)
+        {
+            volume += samples[i];
+        }
+
+        avarageVolume = (float)(volume / Convert.ToDouble(sampleCount));
+
     }
 }
