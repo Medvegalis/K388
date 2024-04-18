@@ -48,13 +48,17 @@ GameObject:
   m_Component:
   - component: {fileID: 1866928821186826275}
   - component: {fileID: 5399067858856681957}
+  - component: {fileID: 7219537485188452306}
+  - component: {fileID: 7924658617780710286}
+  - component: {fileID: 6108392044500132774}
+  - component: {fileID: 6079639264294839405}
   m_Layer: 0
   m_Name: VRPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1866928821186826275
 Transform:
   m_ObjectHideFlags: 0
@@ -88,6 +92,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 1655544515735603619}
   rightHand: {fileID: 8440344844907381762}
+--- !u!114 &7219537485188452306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520171132320889423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb58f061ad9107e4b87501902f34b5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wpm: 0
+  textBox: {fileID: 0}
+  textBoxWPM: {fileID: 0}
+  startStopButton: {fileID: 0}
+  buttonText: {fileID: 0}
+--- !u!114 &7924658617780710286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520171132320889423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1fd377aca2204429f32763f1f92ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sampleRate: 44100
+  normalizationFactor: 0.1
+  updateInterval: 0.7
+  microphoneNR: 0
+  avarageVolume: 0
+  textUi: {fileID: 0}
+--- !u!114 &6108392044500132774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520171132320889423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf84ca13795fb24f8aba7b626eca6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeDetection: {fileID: 7924658617780710286}
+  speechScript: {fileID: 7219537485188452306}
+  textui: {fileID: 0}
+--- !u!114 &6079639264294839405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520171132320889423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6113c8dad705458dd5e89f98cdfcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttsManager: {fileID: 0}
 --- !u!1 &619824131128485066
 GameObject:
   m_ObjectHideFlags: 0
