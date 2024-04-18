@@ -30,6 +30,7 @@ public class VolumeDetection : MonoBehaviour
 
     void Start()
     {
+        samples = new List<double>();
         // Create a new audio source for capturing microphone input
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.mute = true;
@@ -46,8 +47,15 @@ public class VolumeDetection : MonoBehaviour
         // Use the first available microphone
         microphoneName = devices[microphoneNR];
 
-        // Start recording from the selected microphone
-        audioSource.clip = Microphone.Start(microphoneName, true, 1, sampleRate);
+        if (AudioManager.instance.micDeviceName != "")
+        {
+            microphoneName = AudioManager.instance.micDeviceName;
+            // Start recording from the selected microphone
+            audioSource.clip = Microphone.Start(AudioManager.instance.micDeviceName, true, 1, sampleRate);
+        }
+        else
+            audioSource.clip = Microphone.Start(microphoneName, true, 1, sampleRate);
+
         audioSource.loop = true;
         while (!(Microphone.GetPosition(microphoneName) > 0)) { } // Wait until the recording has started
         audioSource.Play();

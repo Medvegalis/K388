@@ -2031,6 +2031,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2775129636596995968, guid: 41327cb76b77f4560baa48841392390d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7684756162184139313, guid: f8e39c1c09aca4a4c99d19f5c308844f, type: 2}
     - target: {fileID: 3037125951106697557, guid: 41327cb76b77f4560baa48841392390d, type: 3}
       propertyPath: m_Name
       value: AudioPlayer
@@ -2064,7 +2068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &397234718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2215,8 +2219,8 @@ MonoBehaviour:
   wpm: 0
   textBox: {fileID: 2090764596}
   textBoxWPM: {fileID: 196453919}
-  startStopButton: {fileID: 0}
-  buttonText: {fileID: 0}
+  startStopButton: {fileID: 4198575744663491845}
+  buttonText: {fileID: 8238517508416678710}
 --- !u!114 &397234726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5831,6 +5835,10 @@ PrefabInstance:
     - target: {fileID: 520171132320889423, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: m_Name
       value: VRPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 520171132320889423, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1866928821186826275, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: m_LocalPosition.x

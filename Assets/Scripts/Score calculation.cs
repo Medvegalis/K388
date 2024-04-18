@@ -27,8 +27,8 @@ public class Scorecalculation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
             CalculateScore();
     }
-    void CalculateScore()
-    {
+    public void CalculateScore()
+    { 
         float speechScore = (float)(speechScript.wpm >= idealWPMlow && speechScript.wpm <= idealWPMhigh ? 1 : speechScript.wpm < idealWPMlow ? 1 - Mathf.Abs(115 - (float)speechScript.wpm) * ratioForWPM : 1 - (idealWPMhigh - speechScript.wpm) * ratioForWPM);
         speechScore = speechScore > 0 ? speechScore : 0;
         Debug.Log("Speech score:"+ speechScore);

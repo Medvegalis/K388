@@ -154,6 +154,7 @@ public class SpeechToText : MonoBehaviour
         }
 
         buttonText.text = "Pradeti kalba";
+        GetComponent<Scorecalculation>().CalculateScore();
     }
 
     private void GetWPM()
