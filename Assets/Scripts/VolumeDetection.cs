@@ -73,7 +73,7 @@ public class VolumeDetection : MonoBehaviour
         if (micPosition < 0)
             return;
 
-        audioSource.clip.GetData(waveData, micPosition);
+        //audioSource.clip.GetData(waveData, micPosition);
 
         // Calculate RMS (root mean square) to get volume
          rms = 0;
