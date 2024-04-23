@@ -4,12 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class VolumeDetection : MonoBehaviour
 {
     // Adjustable parameters
     public int sampleRate = 44100;
-    public float normalizationFactor = 0.1f; // Adjust this value to normalize RMS
+    //public float normalizationFactor = 0.1f; // Adjust this value to normalize RMS
     public float updateInterval = 0.7f; // Time interval to update and display RMS
     public int microphoneNR = 0;
     private AudioSource audioSource;
@@ -84,7 +85,7 @@ public class VolumeDetection : MonoBehaviour
         rms = Mathf.Sqrt(rms / waveData.Length);
 
         // Normalize RMS value
-        rms *= normalizationFactor;
+        //rms *= normalizationFactor;
 
         // Store the RMS value
         rmsValues[currentIndex] = rms;
@@ -97,13 +98,25 @@ public class VolumeDetection : MonoBehaviour
         if (timeSinceLastUpdate >= updateInterval)
         {
             // Calculate average RMS over the update interval
-             averageRms = 0;
+            float max_rms = Math.Abs(rmsValues[0]);
+            for(int i=1;i<rmsValues.Length;i++)
+            {
+                if (Math.Abs(rmsValues[i])>max_rms)
+                {
+                    max_rms = rmsValues[i];
+                }
+            }
+			for (int i = 0; i < rmsValues.Length; i++)
+			{
+                rmsValues[i]/= max_rms;
+			}
+			averageRms = 0;
             foreach (float value in rmsValues)
             {
                 averageRms += value;
             }
             averageRms /= rmsValues.Length;
-            double averageDb = Math.Round(10 * Mathf.Log10(averageRms), 0);
+            double averageDb = Math.Round(20 * Mathf.Log10(averageRms), 2);
             // Display the average RMS in db
             //Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
             
