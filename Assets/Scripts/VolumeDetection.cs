@@ -103,7 +103,7 @@ public class VolumeDetection : MonoBehaviour
             {
                 if (Math.Abs(rmsValues[i])>max_rms)
                 {
-                    max_rms = rmsValues[i];
+                    max_rms = Math.Abs(rmsValues[i]);
                 }
             }
 			for (int i = 0; i < rmsValues.Length; i++)
