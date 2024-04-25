@@ -125,7 +125,7 @@ MonoBehaviour:
   sampleRate: 44100
   updateInterval: 0.7
   microphoneNR: 0
-  avarageVolume: 0
+  averageVolume: 0
   textUi: {fileID: 0}
 --- !u!114 &6108392044500132774
 MonoBehaviour:
@@ -141,7 +141,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeDetection: {fileID: 7924658617780710286}
   speechScript: {fileID: 7219537485188452306}
-  textui: {fileID: 0}
+  TotalScoreTextui: {fileID: 0}
+  VolumeScoreTextui: {fileID: 0}
+  SpeechScoreTextui: {fileID: 0}
+  lookTimers: {fileID: 0}
 --- !u!114 &6079639264294839405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +174,9 @@ MonoBehaviour:
   targetObjects: []
   lookTimeThreshold: 1
   lookAwayThreshold: 3
+  LonglookAway: 0
+  distanceSum: 0
+  TimeLookedAtTextUI: {fileID: 0}
 --- !u!1 &619824131128485066
 GameObject:
   m_ObjectHideFlags: 0

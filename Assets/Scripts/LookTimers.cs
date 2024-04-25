@@ -5,56 +5,69 @@ using UnityEngine.UI;
 
 public class LookTimers : MonoBehaviour
 {
-    public Camera playerCamera;
-    public List<GameObject> targetObjects; // List of target objects to track
-    public float lookTimeThreshold = 1.0f; // Adjust as needed
-    public float lookAwayThreshold = 3.0f; // Adjust as needed
-    public bool LonglookAway = false;
+	public Camera playerCamera;
+	public List<GameObject> targetObjects;
+	public float lookTimeThreshold = 1.0f;
+	public float lookAwayThreshold = 3.0f;
+	public bool LonglookAway = false;
+	public float distanceSum = 0.0f;
 
-    private float currentLookTime = 0.0f;
-    private float currentLookAwayTime = 0.0f;
-    
-    [SerializeField] private Text TimeLookedAtTextUI;
+	private float currentLookTime = 0.0f;
+	private float currentLookAwayTime = 0.0f;
+	private Vector3 vect;
+	private bool vect_exists = false;
 
-    void Update()
-    {
-        // Cast a ray from the center of the screen forward
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+	[SerializeField] private Text TimeLookedAtTextUI;
 
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            GameObject hitObject = hit.collider.gameObject;
+	void Update()
+	{
+		Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-            // If the ray hits any of the target objects
-            if (targetObjects.Contains(hitObject))
-            {
-                currentLookAwayTime = 0f;
-                currentLookTime += Time.deltaTime;
-                TimeLookedAtTextUI.text = currentLookTime.ToString();
+		RaycastHit hit;
+		if (Physics.Raycast(ray, out hit))
+		{
+			GameObject hitObject = hit.collider.gameObject;
 
-                if (currentLookTime >= lookTimeThreshold)
-                {
-                    LonglookAway = false;
-                    // If the player has been looking for the required time at any of the target objects
-                    Debug.Log("Player has been looking at one of the target objects");
-                    // Do something here, like increase a counter or trigger an event
-                }
-            }
-            else
-            {
-                // If the ray doesn't hit anything, reset the look time
-                currentLookTime = 0.0f;
-                currentLookAwayTime += Time.deltaTime;
+			if (targetObjects.Contains(hitObject))
+			{
+				currentLookAwayTime = 0f;
+				currentLookTime += Time.deltaTime;
+				TimeLookedAtTextUI.text = currentLookTime.ToString();
 
-                if (currentLookAwayTime >= lookAwayThreshold)
-                {
-                    LonglookAway = true;
-                    // If the player has looked away from all target objects for too long
-                    Debug.Log("Player has looked away from all target objects");
-                    // Do something here, like call a function or trigger an event
-                }
-            }
-        }
-    }
+				if (currentLookTime >= lookTimeThreshold)
+				{
+					LonglookAway = false;
+					Debug.Log("Player has been looking at one of the target objects");
+				}
+			}
+			else
+			{
+				currentLookTime = 0.0f;
+				currentLookAwayTime += Time.deltaTime;
+
+				if (currentLookAwayTime >= lookAwayThreshold)
+				{
+					LonglookAway = true;
+					Debug.Log("Player has looked away from all target objects");
+				}
+			}
+
+			if (vect_exists)
+			{
+				float distance = Vector3.Distance(vect, ray.origin);
+				distanceSum += distance;
+				Debug.Log("Distance: " + distance);
+			}
+
+			vect = ray.origin;
+			vect_exists = true;
+		}
+	}
+	public float DistanceSum
+	{
+		get 
+		{
+			return distanceSum;
+		}
+	}
 }

@@ -29,7 +29,7 @@ public class TipPopupControler : MonoBehaviour
         {
             if (!popupActive)
             {
-                if (volumeDetection.avarageVolume < 4 && !ifPopupShownAlready[0])
+                if (volumeDetection.averageVolume < 4 && !ifPopupShownAlready[0])
                 {
                     ShowPopup("You should try speaking louder");
                     popupActive = true;
