@@ -9,10 +9,11 @@ public class LookTimers : MonoBehaviour
     public List<GameObject> targetObjects; // List of target objects to track
     public float lookTimeThreshold = 1.0f; // Adjust as needed
     public float lookAwayThreshold = 3.0f; // Adjust as needed
+    public bool LonglookAway = false;
 
     private float currentLookTime = 0.0f;
     private float currentLookAwayTime = 0.0f;
-
+    
     [SerializeField] private Text TimeLookedAtTextUI;
 
     void Update()
@@ -34,6 +35,7 @@ public class LookTimers : MonoBehaviour
 
                 if (currentLookTime >= lookTimeThreshold)
                 {
+                    LonglookAway = false;
                     // If the player has been looking for the required time at any of the target objects
                     Debug.Log("Player has been looking at one of the target objects");
                     // Do something here, like increase a counter or trigger an event
@@ -47,6 +49,7 @@ public class LookTimers : MonoBehaviour
 
                 if (currentLookAwayTime >= lookAwayThreshold)
                 {
+                    LonglookAway = true;
                     // If the player has looked away from all target objects for too long
                     Debug.Log("Player has looked away from all target objects");
                     // Do something here, like call a function or trigger an event
