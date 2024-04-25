@@ -27,7 +27,7 @@ public class VolumeDetection : MonoBehaviour
     private int sampleCount;
     private List<double> samples;
 
-    public TextMeshProUGUI textUi;
+    public Text textUi;
 
     void Start()
     {
@@ -74,7 +74,7 @@ public class VolumeDetection : MonoBehaviour
         if (micPosition < 0)
             return;
 
-        //audioSource.clip.GetData(waveData, micPosition);
+        audioSource.clip.GetData(waveData, micPosition);
 
         // Calculate RMS (root mean square) to get volume
          rms = 0;
@@ -120,7 +120,7 @@ public class VolumeDetection : MonoBehaviour
             // Display the average RMS in db
             //Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
             
-            textUi.text = averageDb.ToString();
+            textUi.text = averageRms.ToString();
             currentIndex = 0;
             // Reset time since last update
             timeSinceLastUpdate = 0;

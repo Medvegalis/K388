@@ -18,7 +18,8 @@ public class PlayerStatsEditorUI : MonoBehaviour
 
     private static float currentHeight = 180;
     private static float currentSpeed = 3;
-    private static float currentHeightCord = 1.4f;
+    //private static float currentHeightCord = 1.4f;
+    private static float currentHeightCord = 0f;
 
     private void OnEnable()
     {
@@ -29,7 +30,7 @@ public class PlayerStatsEditorUI : MonoBehaviour
     private void Start()
     {
         dynamicMoveProvider.moveSpeed = currentSpeed;
-        cameraTransform.position = new Vector3(cameraTransform.position.x, currentHeightCord, cameraTransform.position.z);
+        //cameraTransform.position = new Vector3(cameraTransform.position.x, currentHeightCord, cameraTransform.position.z);
         heightText.text = currentHeight.ToString();
         moveSpeedText.text = currentSpeed.ToString();
     }

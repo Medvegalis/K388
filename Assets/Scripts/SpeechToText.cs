@@ -22,8 +22,8 @@ public class SpeechToText : MonoBehaviour
     private int numberOfResponses;
     public double wpm;
 
-    [SerializeField] private TextMeshProUGUI textBox;
-    [SerializeField] private TextMeshProUGUI textBoxWPM;
+    [SerializeField] private Text textBox;
+    [SerializeField] private Text textBoxWPM;
     private XRIDefaultInputActions controls;
 
     [SerializeField] private Button startStopButton;
@@ -66,11 +66,15 @@ public class SpeechToText : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab)&&!recording)
         {
             Debug.Log("Started");
+            textBox.text = "Klausoma...";
+            buttonText.text = "Sustabdyti kalba";
             StartRecording();
         }
         else if (recording && (Microphone.GetPosition(null) >= clip.samples || Input.GetKeyDown(KeyCode.Tab)))
         {
             Debug.Log("Stopped");
+            textBox.text = "Generuojama...";
+            buttonText.text = "Pradeti kalba";
             StopRecording();
         }
 
@@ -78,12 +82,14 @@ public class SpeechToText : MonoBehaviour
         {
             Debug.Log("Started");
             textBox.text = "Klausoma...";
+            buttonText.text = "Sustabdyti kalba";
             StartRecording();
         }
         else if (recording && (Microphone.GetPosition(null) >= clip.samples || controls.XRILeftHand.Transcript.WasPerformedThisFrame()))
         {
             Debug.Log("Stopped");
             textBox.text = "Generuojama...";
+            buttonText.text = "Pradeti kalba";
             StopRecording();
         }
 
@@ -167,7 +173,7 @@ public class SpeechToText : MonoBehaviour
         }
 
         wpm=  wordCount / Convert.ToDouble(numberOfResponses)*(60.0/recordDuration);
-        textBoxWPM.text = "Wpm =" + wpm;
+        textBoxWPM.text = wpm.ToString();
         Debug.Log("Wpm ="+wpm);
     }
 }
