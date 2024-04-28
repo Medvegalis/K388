@@ -2301,7 +2301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb58f061ad9107e4b87501902f34b5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  responses: []
   wpm: 0
   textBox: {fileID: 18448484}
   textBoxWPM: {fileID: 0}
@@ -6015,10 +6014,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1458153340}
     - target: {fileID: 104477761438750243, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: targetObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 104477761438750243, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: targetObjects.Array.data[0]
       value: 
       objectReference: {fileID: 208370537}
@@ -6033,10 +6028,6 @@ PrefabInstance:
     - target: {fileID: 520171132320889423, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: m_Name
       value: VRPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 520171132320889423, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1866928821186826275, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6078,42 +6069,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.060999986
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.22600001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9856324
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.16890459
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846289278710763719, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 19.448
-      objectReference: {fileID: 0}
     - target: {fileID: 6079639264294839405, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: ttsManager
       value: 
       objectReference: {fileID: 63467259}
-    - target: {fileID: 6108392044500132774, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
-      propertyPath: textui
-      value: 
-      objectReference: {fileID: 1168174968}
     - target: {fileID: 6108392044500132774, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: TotalScoreTextui
       value: 
