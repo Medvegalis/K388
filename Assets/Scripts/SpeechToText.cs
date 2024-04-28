@@ -29,7 +29,6 @@ public class SpeechToText : MonoBehaviour
     [SerializeField] private Button startStopButton;
     [SerializeField] private Text buttonText;
 
-
     // Start is called before the first frame update
     private void Awake()
     {
@@ -93,6 +92,11 @@ public class SpeechToText : MonoBehaviour
             StopRecording();
         }
 
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            NpcEventHandler.AskQuestion();
+        }
+
     }
 
     private void ButtonAction()
@@ -152,6 +156,7 @@ public class SpeechToText : MonoBehaviour
         Debug.Log(res.Text.ToString());
         if (res.Text.Length>1 && res.Text.Split(',').Length<30)
         {
+            NpcEventHandler.GenerateQuestion(res.Text);
             Debug.Log(res.Text.ToString());
             responses.Add(res.Text.ToString());
             numberOfResponses++;

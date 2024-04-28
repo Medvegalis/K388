@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657695, g: 0.49641138, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2147,7 +2147,6 @@ GameObject:
   - component: {fileID: 397234725}
   - component: {fileID: 397234727}
   - component: {fileID: 397234726}
-  - component: {fileID: 397234728}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2302,8 +2301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb58f061ad9107e4b87501902f34b5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  responses: []
   wpm: 0
-  textBox: {fileID: 0}
+  textBox: {fileID: 18448484}
   textBoxWPM: {fileID: 0}
   startStopButton: {fileID: 4198575744663491845}
   buttonText: {fileID: 8238517508416678710}
@@ -2324,6 +2324,7 @@ MonoBehaviour:
   TotalScoreTextui: {fileID: 0}
   VolumeScoreTextui: {fileID: 0}
   SpeechScoreTextui: {fileID: 0}
+  lookTimers: {fileID: 0}
 --- !u!114 &397234727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,21 +2340,8 @@ MonoBehaviour:
   sampleRate: 44100
   updateInterval: 0.7
   microphoneNR: 0
-  avarageVolume: 0
+  averageVolume: 0
   textUi: {fileID: 0}
---- !u!114 &397234728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397234717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a6113c8dad705458dd5e89f98cdfcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ttsManager: {fileID: 63467259}
 --- !u!1001 &401587764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6340,6 +6328,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1116119838}
+  - component: {fileID: 1116119840}
+  - component: {fileID: 1116119839}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -6368,6 +6358,34 @@ Transform:
   - {fileID: 1798832258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116119839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116119837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1eb6f09121fff42847f7ff9220da83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stt: {fileID: 397234725}
+  npcs: {fileID: 1116119837}
+  ttsManager: {fileID: 63467259}
+--- !u!114 &1116119840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116119837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6113c8dad705458dd5e89f98cdfcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttsManager: {fileID: 63467259}
 --- !u!114 &1131803739 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7241530029256390859, guid: c36520ea9b1053543babfc9e89ba000f, type: 3}
@@ -10062,6 +10080,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2975e6282119c0f42827b3366c237338, type: 3}
   m_PrefabInstance: {fileID: 1719670104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1836787007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836787009}
+  - component: {fileID: 1836787008}
+  m_Layer: 0
+  m_Name: NpcEventHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1836787008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836787007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51301d4d717b01243b55b6e6d8bd23f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1836787009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836787007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.2936, y: -34.269363, z: -67.08752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1852700075 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1970787560316141773, guid: c36520ea9b1053543babfc9e89ba000f, type: 3}
@@ -12953,3 +13015,4 @@ SceneRoots:
   - {fileID: 1116119838}
   - {fileID: 2870773420984172458}
   - {fileID: 336016492}
+  - {fileID: 1836787009}
