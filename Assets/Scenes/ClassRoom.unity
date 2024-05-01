@@ -2274,6 +2274,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4027329233945328327, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000000018626449
@@ -2394,6 +2402,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -64.345
       objectReference: {fileID: 0}
+    - target: {fileID: -1556643823996737977, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1556643823996737977, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 321472338294687841, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321472338294687841, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
       propertyPath: m_Name
       value: Male_1
@@ -2438,10 +2462,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.081
       objectReference: {fileID: 0}
+    - target: {fileID: 3017689588555593816, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017689588555593816, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ce45f929e39683a43946c25da372fa30, type: 2}
+    - target: {fileID: 6453983553549744594, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453983553549744594, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3483,6 +3539,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1116119838}
     m_Modifications:
+    - target: {fileID: -9196096680256235381, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9196096680256235381, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3523,14 +3587,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4322866946280315541, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4322866946280315541, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -72199449982918480, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -72199449982918480, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
       propertyPath: m_Name
       value: Female_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507365958113117047, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507365958113117047, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591640336110110895, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591640336110110895, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764610513572211956, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764610513572211956, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3912e91c6d0c21b46994c7f917a01c49, type: 2}
+    - target: {fileID: 6819722677127916303, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: cdc2f4a3bdd13624ab3985d5dbdcc47e, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7419,6 +7539,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1116119838}
     m_Modifications:
+    - target: {fileID: -9196096680256235381, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9196096680256235381, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.4970002
@@ -7459,14 +7587,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7916417181227867736, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7916417181227867736, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
       propertyPath: m_Name
       value: Male
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614939015278057997, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614939015278057997, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ce5b9e2789c847e44820b422d269915d, type: 2}
+    - target: {fileID: 6453983553549744594, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453983553549744594, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885937180483955036, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757479921342651384, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757479921342651384, guid: 1c5323804b17d8b4ab8baced07f03efa, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13257,6 +13445,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5070727371589605588, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5070727371589605588, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4775656569239714629, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4775656569239714629, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 531347361441504866, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531347361441504866, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 778486187461426355, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 778486187461426355, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
       propertyPath: m_Name
       value: Male_2
@@ -13265,6 +13493,38 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 934f9b374c0fcb749b39ff4404a94dfb, type: 2}
+    - target: {fileID: 6345175797324881869, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345175797324881869, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757479921342651384, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757479921342651384, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13428,14 +13688,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7223155376980132370, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7223155376980132370, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6888312823718183888, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6888312823718183888, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3422817130242913854, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3422817130242913854, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -466862065519342940, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -466862065519342940, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2975e6282119c0f42827b3366c237338, type: 3}
       propertyPath: m_Name
       value: Female_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507365958113117047, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507365958113117047, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 2975e6282119c0f42827b3366c237338, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9557aa86343702f4db6bd53d7c0f8b88, type: 2}
+    - target: {fileID: 6453983553549744594, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453983553549744594, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: 2975e6282119c0f42827b3366c237338, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13999,14 +14331,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5646056616868761377, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5646056616868761377, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4466831176416676730, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4322866946280315541, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4322866946280315541, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1436440534805490760, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1436440534805490760, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 778486187461426355, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 778486187461426355, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
       propertyPath: m_Name
       value: Female
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507365958113117047, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507365958113117047, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570963149163097484, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570963149163097484, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 70fe74df9a3b5bd4bb93e6621e9e1368, type: 2}
+    - target: {fileID: 6819722677127916303, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819722677127916303, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986814019933463497, guid: c418a4f9418d5214581455d7acc0754d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
