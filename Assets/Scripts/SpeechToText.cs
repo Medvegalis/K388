@@ -15,7 +15,7 @@ public class SpeechToText : MonoBehaviour
     string api_key;
     private readonly string fileName = "output.wav";
     private OpenAIApi openai;
-    private float recordDuration = 5f; // Duration to record in seconds
+    private float recordDuration = 60f; // Duration to record in seconds
     private float waitTime = 10f; // Time between recordings (10 for demo, 30 for production)
     private float recordTimer = 0f;
     private List<string> responses;
@@ -28,6 +28,8 @@ public class SpeechToText : MonoBehaviour
 
     [SerializeField] private Button startStopButton;
     [SerializeField] private Text buttonText;
+
+    [SerializeField] private Button startQuestionsButton;
 
     // Start is called before the first frame update
     private void Awake()
@@ -92,7 +94,7 @@ public class SpeechToText : MonoBehaviour
             StopRecording();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             NpcEventHandler.AskQuestion();
         }
@@ -166,6 +168,9 @@ public class SpeechToText : MonoBehaviour
 
         buttonText.text = "Pradeti kalba";
         GetComponent<Scorecalculation>().CalculateScore();
+
+        if(startQuestionsButton != null)
+            startQuestionsButton.interactable = true;
     }
 
     private void GetWPM()

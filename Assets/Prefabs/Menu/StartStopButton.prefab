@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3742209302000787214}
   - component: {fileID: 6336584252311486363}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4148576596952605729}
   - component: {fileID: 5211881064874397221}
   m_Layer: 5
-  m_Name: Resume
+  m_Name: Pradeti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
