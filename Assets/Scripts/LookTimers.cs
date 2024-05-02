@@ -56,18 +56,14 @@ public class LookTimers : MonoBehaviour
 			{
 				float distance = Vector3.Distance(vect, ray.origin);
 				distanceSum += distance;
-				//Debug.Log("Distance: " + distance);
 			}
 
 			vect = ray.origin;
 			vect_exists = true;
 		}
 	}
-	public float DistanceSum
+	public float DistanceSum()
 	{
-		get 
-		{
-			return distanceSum;
-		}
+		return distanceSum;
 	}
 }
