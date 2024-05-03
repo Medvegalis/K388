@@ -7838,6 +7838,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &622228207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3731650382256218283, guid: c36520ea9b1053543babfc9e89ba000f, type: 3}
+  m_PrefabInstance: {fileID: 622228202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &630366446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10796,6 +10807,10 @@ PrefabInstance:
       propertyPath: VolumeScoreTextui
       value: 
       objectReference: {fileID: 622228205}
+    - target: {fileID: 6108392044500132774, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: DistanceScoreTextui
+      value: 
+      objectReference: {fileID: 622228207}
     - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: textBox
       value: 
@@ -14262,6 +14277,7 @@ MonoBehaviour:
   textBoxWPM: {fileID: 0}
   startStopButton: {fileID: 0}
   buttonText: {fileID: 0}
+  startQuestionsButton: {fileID: 0}
 --- !u!143 &1095951481
 CharacterController:
   m_ObjectHideFlags: 0

@@ -3449,6 +3449,7 @@ MonoBehaviour:
   TotalScoreTextui: {fileID: 0}
   VolumeScoreTextui: {fileID: 0}
   SpeechScoreTextui: {fileID: 0}
+  DistanceScoreTextui: {fileID: 0}
   lookTimers: {fileID: 0}
 --- !u!114 &397234727
 MonoBehaviour:
@@ -8426,6 +8427,10 @@ PrefabInstance:
       propertyPath: VolumeScoreTextui
       value: 
       objectReference: {fileID: 1480941928}
+    - target: {fileID: 6108392044500132774, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: DistanceScoreTextui
+      value: 
+      objectReference: {fileID: 1506165961}
     - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: textBox
       value: 
@@ -11920,6 +11925,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e798dec2813e594478af4b93fe2c0ae1, type: 3}
   m_PrefabInstance: {fileID: 621529461}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1506165961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3731650382256218283, guid: c36520ea9b1053543babfc9e89ba000f, type: 3}
+  m_PrefabInstance: {fileID: 5970339154496268101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1508427487
 GameObject:
   m_ObjectHideFlags: 0

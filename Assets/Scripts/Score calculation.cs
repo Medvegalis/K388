@@ -11,7 +11,8 @@ public class Scorecalculation : MonoBehaviour
 	[SerializeField] public Text TotalScoreTextui;
 	[SerializeField] public Text VolumeScoreTextui;
 	[SerializeField] public Text SpeechScoreTextui;
-	[SerializeField] private LookTimers lookTimers;
+    [SerializeField] public Text DistanceScoreTextui;
+    [SerializeField] private LookTimers lookTimers;
 	
 	private int idealWPMlow = 40;
 	private int idealWPMhigh = 100;
@@ -69,6 +70,7 @@ public class Scorecalculation : MonoBehaviour
 		float distScore = (float)(dist >= dist_min ?
 			(float) dist/(dist+10)*10 : 0);
 		Debug.Log("Distance score: " + distScore);
+		DistanceScoreTextui.text = distScore.ToString();
 
 		score = (float)(speechScore * 0.6 + volumeScore * 0.3 + distScore * 0.1);
 		Debug.Log("Total score: " + score);
