@@ -156,14 +156,15 @@ public class SpeechToText : MonoBehaviour
         var res = await openai.CreateAudioTranscription(req);
         
         Debug.Log(res.Text.ToString());
-        if (res.Text.Length>1 && res.Text.Split(',').Length<30)
+		textBox.text = res.Text.ToString();
+
+		if (res.Text.Length>1 && res.Text.Split(',').Length<1000)
         {
             NpcEventHandler.GenerateQuestion(res.Text);
             Debug.Log(res.Text.ToString());
             responses.Add(res.Text.ToString());
             numberOfResponses++;
             GetWPM();
-            textBox.text = res.Text.ToString();
         }
 
         buttonText.text = "Pradeti kalba";
