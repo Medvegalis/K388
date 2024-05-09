@@ -31,7 +31,8 @@ public class SpeechToText : MonoBehaviour
 
     [SerializeField] private Button startQuestionsButton;
 
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator maleTwoAnimator;
+    [SerializeField] private Animator maleOneAnimator;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -176,7 +177,8 @@ public class SpeechToText : MonoBehaviour
         if(startQuestionsButton != null)
             startQuestionsButton.interactable = true;
 
-        animator.SetTrigger("SpeechFinished");
+        maleTwoAnimator.SetTrigger("SpeechFinished");
+        maleOneAnimator.SetTrigger("SpeechFinished");
 
     }
 

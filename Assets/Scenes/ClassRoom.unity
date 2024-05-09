@@ -3432,7 +3432,8 @@ MonoBehaviour:
   startStopButton: {fileID: 4198575744663491845}
   buttonText: {fileID: 8238517508416678710}
   startQuestionsButton: {fileID: 0}
-  animator: {fileID: 0}
+  maleTwoAnimator: {fileID: 0}
+  maleOneAnimator: {fileID: 0}
 --- !u!114 &397234726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8448,6 +8449,22 @@ PrefabInstance:
       propertyPath: textBoxWPM
       value: 
       objectReference: {fileID: 1131803739}
+    - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: maleAnimator
+      value: 
+      objectReference: {fileID: 1826683183}
+    - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: male2Animator
+      value: 
+      objectReference: {fileID: 2104678753}
+    - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: maleOneAnimator
+      value: 
+      objectReference: {fileID: 1826683183}
+    - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: maleTwoAnimator
+      value: 
+      objectReference: {fileID: 2104678753}
     - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: startStopButton
       value: 
@@ -14742,6 +14759,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67990e47385e2047be3e9b8dc3c6840, type: 3}
+--- !u!95 &1826683183 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4ba9b35dd72aa484fb86e040835967ae, type: 3}
+  m_PrefabInstance: {fileID: 284829656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1830807330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2975e6282119c0f42827b3366c237338, type: 3}
