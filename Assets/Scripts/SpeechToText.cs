@@ -31,6 +31,7 @@ public class SpeechToText : MonoBehaviour
 
     [SerializeField] private Button startQuestionsButton;
 
+    [SerializeField] private Animator animator;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -96,7 +97,9 @@ public class SpeechToText : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+
             NpcEventHandler.AskQuestion();
+
         }
 
     }
@@ -172,6 +175,9 @@ public class SpeechToText : MonoBehaviour
 
         if(startQuestionsButton != null)
             startQuestionsButton.interactable = true;
+
+        animator.SetTrigger("SpeechFinished");
+
     }
 
     private void GetWPM()

@@ -110,6 +110,8 @@ MonoBehaviour:
   textBoxWPM: {fileID: 0}
   startStopButton: {fileID: 0}
   buttonText: {fileID: 0}
+  startQuestionsButton: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &7924658617780710286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   TotalScoreTextui: {fileID: 0}
   VolumeScoreTextui: {fileID: 0}
   SpeechScoreTextui: {fileID: 0}
+  DistanceScoreTextui: {fileID: 0}
   lookTimers: {fileID: 0}
 --- !u!114 &6079639264294839405
 MonoBehaviour:
