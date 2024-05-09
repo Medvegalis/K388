@@ -3432,6 +3432,7 @@ MonoBehaviour:
   startStopButton: {fileID: 4198575744663491845}
   buttonText: {fileID: 8238517508416678710}
   startQuestionsButton: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &397234726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8435,6 +8436,10 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 18448484}
+    - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2104678753}
     - target: {fileID: 7219537485188452306, guid: abaa1e0f1cd33444786491968e1411f5, type: 3}
       propertyPath: buttonText
       value: 
@@ -16771,6 +16776,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 913b74d33fb575341b2acaed6a5ccc5d, type: 3}
+--- !u!95 &2104678753 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ef0174a1033cd04429c750b6b8a16651, type: 3}
+  m_PrefabInstance: {fileID: 1694291874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2106859302
 PrefabInstance:
   m_ObjectHideFlags: 0
