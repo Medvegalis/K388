@@ -50,6 +50,7 @@ public class Scorecalculation : MonoBehaviour
 		float temp = lookTimers.DistanceSum();
 		float dist = Mathf.Abs(prev_dist - temp);
 		prev_dist = temp;
+		
 
 		float coef1 = (float)5 / (idealWPMhigh - idealWPMlow);
 		float speechScore = (float)(speechScript.wpm >= idealWPMlow ?
