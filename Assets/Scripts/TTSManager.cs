@@ -29,6 +29,7 @@ public class TTSManager : MonoBehaviour
         }
     }
 
+#pragma warning disable
     public async void SynthesizeAndPlay(string text, TTSModel model, TTSVoice voice, float speed)
     {
         this.model = model;
