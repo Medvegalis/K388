@@ -8,9 +8,11 @@ public class LookTimers : MonoBehaviour
 	public Camera playerCamera;
 	public List<GameObject> targetObjects;
 	public float lookTimeThreshold = 1.0f;
+	public float lookTimeMax = 10.0f;
 	public float lookAwayThreshold = 3.0f;
 	public bool LonglookAway = false;
 	public float distanceSum = 0.0f;
+	public float point_mod = 1.0f;
 
 	private float currentLookTime = 0.0f;
 	private float currentLookAwayTime = 0.0f;
@@ -34,10 +36,17 @@ public class LookTimers : MonoBehaviour
 				currentLookTime += Time.deltaTime;
 				TimeLookedAtTextUI.text = currentLookTime.ToString();
 
-				if (currentLookTime >= lookTimeThreshold)
+				if (currentLookTime >= lookTimeThreshold && currentLookTime < lookTimeMax)
 				{
 					LonglookAway = false;
 					Debug.Log("Player has been looking at one of the target objects");
+					point_mod = 1+((float) currentLookTime /lookTimeMax);
+				}
+				else if (currentLookTime >= lookTimeMax)
+				{
+					LonglookAway = false;
+					Debug.Log("Player has been looking too long at one of the target objects");
+					point_mod = 1;
 				}
 			}
 			else
@@ -55,19 +64,15 @@ public class LookTimers : MonoBehaviour
 			if (vect_exists)
 			{
 				float distance = Vector3.Distance(vect, ray.origin);
-				distanceSum += distance;
-				Debug.Log("Distance: " + distance);
+				distanceSum += point_mod * distance;
 			}
 
 			vect = ray.origin;
 			vect_exists = true;
 		}
 	}
-	public float DistanceSum
+	public float DistanceSum()
 	{
-		get 
-		{
-			return distanceSum;
-		}
+		return distanceSum;
 	}
 }

@@ -59,7 +59,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1866928821186826275
 Transform:
   m_ObjectHideFlags: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   textBoxWPM: {fileID: 0}
   startStopButton: {fileID: 0}
   buttonText: {fileID: 0}
+  startQuestionsButton: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &7924658617780710286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   TotalScoreTextui: {fileID: 0}
   VolumeScoreTextui: {fileID: 0}
   SpeechScoreTextui: {fileID: 0}
+  DistanceScoreTextui: {fileID: 0}
   lookTimers: {fileID: 0}
 --- !u!114 &6079639264294839405
 MonoBehaviour:
@@ -171,7 +174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 3354762495377915721}
-  targetObjects: []
+  targetObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lookTimeThreshold: 1
   lookAwayThreshold: 3
   LonglookAway: 0
@@ -206,15 +212,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619824131128485066}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.16890459, z: -0, w: 0.9856324}
+  m_LocalPosition: {x: -0.060999986, y: 0, z: -0.22600001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7406835670794841556}
   - {fileID: 8932662047352762902}
   m_Father: {fileID: 1866928821186826275}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 19.448, z: 0}
 --- !u!114 &1277389671640105834
 MonoBehaviour:
   m_ObjectHideFlags: 0

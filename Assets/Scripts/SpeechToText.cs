@@ -15,7 +15,7 @@ public class SpeechToText : MonoBehaviour
     string api_key;
     private readonly string fileName = "output.wav";
     private OpenAIApi openai;
-    private float recordDuration = 5f; // Duration to record in seconds
+    private float recordDuration = 60f; // Duration to record in seconds
     private float waitTime = 10f; // Time between recordings (10 for demo, 30 for production)
     private float recordTimer = 0f;
     private List<string> responses;
@@ -29,7 +29,10 @@ public class SpeechToText : MonoBehaviour
     [SerializeField] private Button startStopButton;
     [SerializeField] private Text buttonText;
 
+    [SerializeField] private Button startQuestionsButton;
 
+    [SerializeField] private Animator maleTwoAnimator;
+    [SerializeField] private Animator maleOneAnimator;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -93,6 +96,13 @@ public class SpeechToText : MonoBehaviour
             StopRecording();
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+
+            NpcEventHandler.AskQuestion();
+
+        }
+
     }
 
     private void ButtonAction()
@@ -150,17 +160,26 @@ public class SpeechToText : MonoBehaviour
         var res = await openai.CreateAudioTranscription(req);
         
         Debug.Log(res.Text.ToString());
-        if (res.Text.Length>1 && res.Text.Split(',').Length<30)
+		textBox.text = res.Text.ToString();
+
+		if (res.Text.Length>1 && res.Text.Split(',').Length<1000)
         {
+            NpcEventHandler.GenerateQuestion(res.Text);
             Debug.Log(res.Text.ToString());
             responses.Add(res.Text.ToString());
             numberOfResponses++;
             GetWPM();
-            textBox.text = res.Text.ToString();
         }
 
         buttonText.text = "Pradeti kalba";
         GetComponent<Scorecalculation>().CalculateScore();
+
+        if(startQuestionsButton != null)
+            startQuestionsButton.interactable = true;
+
+        maleTwoAnimator.SetTrigger("SpeechFinished");
+        maleOneAnimator.SetTrigger("SpeechFinished");
+
     }
 
     private void GetWPM()

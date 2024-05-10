@@ -74,7 +74,7 @@ public class VolumeDetection : MonoBehaviour
 		if (micPosition < 0)
 			return;
 
-		audioSource.clip.GetData(waveData, micPosition);
+		audioSource.clip.GetData(waveData, 0);
 
 		// Calculate RMS (root mean square) to get volume
 		rms = 0;
@@ -83,7 +83,6 @@ public class VolumeDetection : MonoBehaviour
 			rms += sample * sample;
 		}
 		rms = Mathf.Sqrt(rms / waveData.Length);
-
 		// Normalize RMS value
 		//rms *= normalizationFactor;
 
@@ -116,6 +115,7 @@ public class VolumeDetection : MonoBehaviour
 				averageRms += value;
 			}
 			averageRms /= rmsValues.Length;
+			//TODO fix the averageDB calculation
 			double averageDb = Math.Round(20 * Mathf.Log10(averageRms), 2);
 			// Display the average RMS in db
 			//Debug.Log("Average speech volume over " + updateInterval + " seconds: " + averageDb);
