@@ -5,6 +5,7 @@ using OpenAI;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using System.Collections;
 
 
 public class SpeechToText : MonoBehaviour
@@ -33,6 +34,9 @@ public class SpeechToText : MonoBehaviour
 
     [SerializeField] private Animator maleTwoAnimator;
     [SerializeField] private Animator maleOneAnimator;
+    [SerializeField] private Animator femaleOneAnimator;
+    [SerializeField] private Animator femaleTwoAnimator;
+    [SerializeField] private Animator femaleThreeAnimator;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -48,6 +52,8 @@ public class SpeechToText : MonoBehaviour
 
         if(startStopButton != null)
             startStopButton.onClick.AddListener(() => ButtonAction());
+
+
     }
 
     // Update is called once per frame
@@ -141,6 +147,7 @@ public class SpeechToText : MonoBehaviour
             clip = Microphone.Start(null, false, Convert.ToInt32(recordDuration), 44100);
 
         recording = true;
+        StartCoroutine(npcAnimationStart());
     }
 
     private async void StopRecording()
@@ -179,6 +186,8 @@ public class SpeechToText : MonoBehaviour
 
         maleTwoAnimator.SetTrigger("SpeechFinished");
         maleOneAnimator.SetTrigger("SpeechFinished");
+        femaleThreeAnimator.SetTrigger("ThumbsUp");
+        femaleOneAnimator.SetTrigger("SpeechFinished");
 
     }
 
@@ -195,4 +204,12 @@ public class SpeechToText : MonoBehaviour
         textBoxWPM.text = wpm.ToString();
         Debug.Log("Wpm ="+wpm);
     }
+    private IEnumerator npcAnimationStart()
+    {
+        yield return new WaitForSeconds(5f);
+        femaleOneAnimator.SetTrigger("StartTalking");
+        maleTwoAnimator.SetTrigger("StartTalking");
+        femaleTwoAnimator.SetTrigger("SitPositionChange");
+    }
+
 }
