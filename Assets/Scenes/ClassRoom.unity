@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657695, g: 0.49641138, b: 0.5748176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13338,6 +13338,7 @@ MonoBehaviour:
   lookTimers: {fileID: 2055142941}
   wordCount: {fileID: 2055142945}
   tipActive: {fileID: 1575365718}
+  startUIButton: {fileID: 4198575744663491845}
   popupTimeCounter: 600
   ifShowPopups: 1
 --- !u!4 &1686368564 stripped

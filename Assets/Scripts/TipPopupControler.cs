@@ -11,8 +11,10 @@ public class TipPopupControler : MonoBehaviour
     [SerializeField] private LookTimers lookTimers;
     [SerializeField] private SpeechToText wordCount;
     [SerializeField] private GameObject tipActive;
+    public Button startUIButton;
     public int popupTimeCounter;
     public bool ifShowPopups = true;
+    private bool buttonpres = false;
     private int count=0;
     private bool popupActive = false;
     private bool[] ifPopupShownAlready;
@@ -20,58 +22,61 @@ public class TipPopupControler : MonoBehaviour
     void Start()
     {
         ifPopupShownAlready = new bool[4];
+        // Add listener for button press event
+        startUIButton.onClick.AddListener(ButtonPressed);
     }
     void Update()
     {
-        if (!ifShowPopups)
-            return;
-        if (wait >= popupTimeCounter/2)
+        if (buttonpres)
         {
-            if (!popupActive)
+            if (wait >= popupTimeCounter / 2)
             {
-                if (volumeDetection.averageVolume < 4 && !ifPopupShownAlready[0])
+                if (!popupActive)
                 {
-                    ShowPopup("You should try speaking louder");
-                    popupActive = true;
-                    ifPopupShownAlready[0] = true;
-                }
-                else if (lookTimers.LonglookAway && !ifPopupShownAlready[1])
-                {
-                    ShowPopup("You should try to look at the audience often while presenting");
-                    popupActive = true;
-                    ifPopupShownAlready[1] = true;
-                }
-                else if (wordCount.wpm != 0)
-                {
-                    if (wordCount.wpm < 25 && !ifPopupShownAlready[2])
+                    if (volumeDetection.averageVolume < 3 && !ifPopupShownAlready[0])
                     {
-                        ShowPopup("You should try speaking faster");
+                        ShowPopup("You should try speaking louder");
                         popupActive = true;
-                        ifPopupShownAlready[2] = true;
+                        ifPopupShownAlready[0] = true;
                     }
-                    else if (wordCount.wpm > 80 && !ifPopupShownAlready[3])
+                    else if (lookTimers.LonglookAway && !ifPopupShownAlready[1])
                     {
-                        ShowPopup("You should try speaking slower");
+                        ShowPopup("You should try to look at the audience often while presenting");
                         popupActive = true;
-                        ifPopupShownAlready[3] = true;
+                        ifPopupShownAlready[1] = true;
                     }
+                    else if (wordCount.wpm != 0)
+                    {
+                        if (wordCount.wpm < 25 && !ifPopupShownAlready[2])
+                        {
+                            ShowPopup("You should try speaking faster");
+                            popupActive = true;
+                            ifPopupShownAlready[2] = true;
+                        }
+                        else if (wordCount.wpm > 80 && !ifPopupShownAlready[3])
+                        {
+                            ShowPopup("You should try speaking slower");
+                            popupActive = true;
+                            ifPopupShownAlready[3] = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (count == popupTimeCounter)
+                    {
+                        HidePopup();
+                        popupActive = false;
+                        count = 0;
+                        wait = 0;
+                    }
+                    else { count++; }
                 }
             }
             else
             {
-                if (count == popupTimeCounter)
-                {
-                    HidePopup();
-                    popupActive = false;
-                    count = 0;
-                    wait = 0;
-                }
-                else { count++; }
+                wait++;
             }
-        }
-        else
-        {
-            wait++;
         }
     }
 
@@ -86,5 +91,10 @@ public class TipPopupControler : MonoBehaviour
     public void HidePopup()
     {
         tipActive.SetActive(false);
+    }
+    private void ButtonPressed()
+    {
+        Debug.Log("Button Pressed!");
+        buttonpres = true;
     }
 }
