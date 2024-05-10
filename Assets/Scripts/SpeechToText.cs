@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 
 public class SpeechToText : MonoBehaviour
@@ -22,6 +23,7 @@ public class SpeechToText : MonoBehaviour
     private List<string> responses;
     private int numberOfResponses;
     public double wpm;
+    public int fillerWC;
 
     [SerializeField] private Text textBox;
     [SerializeField] private Text textBoxWPM;
@@ -46,6 +48,7 @@ public class SpeechToText : MonoBehaviour
     }
     void Start()
     {
+        fillerWC = 0;
         responses = new List<string>();
         recording = false;
         recordTimer = Time.time + 5f; //Time until first recording(5 for demo, 10-15 for production)
@@ -168,8 +171,9 @@ public class SpeechToText : MonoBehaviour
         
         Debug.Log(res.Text.ToString());
 		textBox.text = res.Text.ToString();
+        CountFillerWords(res.Text.ToString());
 
-		if (res.Text.Length>1 && res.Text.Split(',').Length<1000)
+        if (res.Text.Length>1 && res.Text.Split(',').Length<1000)
         {
             NpcEventHandler.GenerateQuestion(res.Text);
             Debug.Log(res.Text.ToString());
@@ -203,6 +207,14 @@ public class SpeechToText : MonoBehaviour
         wpm=  wordCount / Convert.ToDouble(numberOfResponses)*(60.0/recordDuration);
         textBoxWPM.text = wpm.ToString();
         Debug.Log("Wpm ="+wpm);
+    }
+    private void CountFillerWords(string input)
+    {
+        string pattern = @"\b(u+m+|h+m+|a+h+|eh|er|huh|m+hm+)\b";
+
+        MatchCollection matches = Regex.Matches(input, pattern, RegexOptions.IgnoreCase);
+
+        fillerWC += matches.Count;
     }
     private IEnumerator npcAnimationStart()
     {
