@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Human.body
-    second: {fileID: 2100000, guid: 340031619fab5f84290072aa47e3a379, type: 2}
+    second: {fileID: 2100000, guid: 9abff37af5e65144b8e808d2df818337, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -23,7 +23,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Human.eyebrow012
-    second: {fileID: 2100000, guid: 3d23bce55de29844e8db252fee07fc51, type: 2}
+    second: {fileID: 2100000, guid: 39d70a9d9f05648408597036fbc6f992, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -33,7 +33,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: makeskinmaterial.002
-    second: {fileID: 2100000, guid: c8a4d0450f6935c4b98c781854a350f7, type: 2}
+    second: {fileID: 2100000, guid: 3971d815e83921648a69ad22f4db447a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
