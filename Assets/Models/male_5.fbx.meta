@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Human.culturalibre_sneakers
-    second: {fileID: 2100000, guid: 52ced3b13e98c2d4a8d4ac857adedc16, type: 2}
+    second: {fileID: 2100000, guid: 7b998f417611c4c4599495f9ab16f05d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -28,7 +28,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Human.mindfront_male_trousers_1
-    second: {fileID: 2100000, guid: dbb8f5656d638094da67b3ae6d3143a5, type: 2}
+    second: {fileID: 2100000, guid: 7d0646e8557ecbe468f140d7f3eff120, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
