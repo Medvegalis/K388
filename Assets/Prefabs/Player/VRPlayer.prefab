@@ -106,12 +106,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wpm: 0
+  fillerWC: 0
   textBox: {fileID: 0}
   textBoxWPM: {fileID: 0}
   startStopButton: {fileID: 0}
   buttonText: {fileID: 0}
   startQuestionsButton: {fileID: 0}
-  animator: {fileID: 0}
+  maleTwoAnimator: {fileID: 0}
+  maleOneAnimator: {fileID: 0}
+  femaleOneAnimator: {fileID: 0}
+  femaleTwoAnimator: {fileID: 0}
+  femaleThreeAnimator: {fileID: 0}
 --- !u!114 &7924658617780710286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,9 +184,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   lookTimeThreshold: 1
+  lookTimeMax: 10
   lookAwayThreshold: 3
   LonglookAway: 0
   distanceSum: 0
+  point_mod: 1
   TimeLookedAtTextUI: {fileID: 0}
 --- !u!1 &619824131128485066
 GameObject:
@@ -384,7 +391,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833028356851180375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -615,7 +622,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2991042043376073799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -744,10 +751,10 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 8270855663187062767, guid: 1392f805216c47742996d4742c80721c, type: 3}
+  m_ModelPrefab: {fileID: 7072478885644867327, guid: 9409b47137f44bb4da0a30e61d8dfb2d, type: 3}
   m_ModelParent: {fileID: 955350926671998739}
   m_Model: {fileID: 0}
-  m_AnimateModel: 0
+  m_AnimateModel: 1
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
   m_PositionAction:
@@ -3039,7 +3046,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6506207631295715696}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5042,7 +5049,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8334098506106517447}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5171,10 +5178,10 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 3475118261464492563, guid: 9f3369e30fbd31f4bb596b1a99babe83, type: 3}
+  m_ModelPrefab: {fileID: 3240524871626806228, guid: 2a383d04fbf756046a4b5164fee1ae8b, type: 3}
   m_ModelParent: {fileID: 3874670607841210330}
   m_Model: {fileID: 0}
-  m_AnimateModel: 0
+  m_AnimateModel: 1
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
   m_PositionAction:

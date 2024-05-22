@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private int level1Index = 1;
     private int level2Index = 2;
     private int level3Index = 3;
+    private int tutorialIndex = 4;
     void Start()
     {
         
@@ -30,6 +31,11 @@ public class LevelManager : MonoBehaviour
     public void StartLevel3()
     {
         SceneManager.LoadScene(level3Index);
+    }
+
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene(tutorialIndex);
     }
     public void QuitGame()
     {

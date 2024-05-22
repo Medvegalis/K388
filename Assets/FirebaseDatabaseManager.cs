@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using static FirebaseDatabaseManager;
 
 public class Point
@@ -35,7 +36,8 @@ public class FirebaseDatabaseManager : MonoBehaviour
 	int algor_iter = 50;
 	Point c1 = new Point(50.0, 1.0);
 	Point c2 = new Point(60.0, 2.0);
-	void Start()
+    [SerializeField] private Text uiText;
+    void Start()
 	{
 		userId = SystemInfo.deviceUniqueIdentifier;
 		reference = FirebaseDatabase.DefaultInstance.RootReference;
@@ -143,7 +145,9 @@ public class FirebaseDatabaseManager : MonoBehaviour
 						 Point lpt = points[points.Count() - 1];
 						 //Debug.Log($"Added_point: {Math.Round(lpt.HeartRate,2)};{lpt.Time};{lpt.Classif}");
 						 Debug.Log($"Speech_Condition: {Detect_Class(c1,c2,lpt)}");
-					 }
+                         uiText.text = "" +  Detect_Class(c1, c2, lpt);
+
+                     }
 				 }
 			 }
 		 });

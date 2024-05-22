@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OfficeScene.unity
     guid: 030c23bb5d4f8ca4ba80c6ccc8ac0424
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: c84668107fab9c047ae0cf30d03a42b8
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6616fd19feb62d34097dacc642d4b56c, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7b341e677f0511a4b85037b0a084bacc, type: 2}
