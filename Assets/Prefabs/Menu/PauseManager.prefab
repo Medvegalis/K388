@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: "T\u0119sti"
 --- !u!1 &499470040484852221
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.00006, y: -540}
+  m_AnchoredPosition: {x: 376.90002, y: -540}
   m_SizeDelta: {x: 300, y: 417.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8983074456801720692
@@ -1124,7 +1124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.345, y: -79.34}
+  m_AnchoredPosition: {x: 170.345, y: -78.348335}
   m_SizeDelta: {x: 225.3, y: 29.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9031338750342043231
@@ -1616,7 +1616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.345, y: -357.025}
+  m_AnchoredPosition: {x: 170.345, y: -356.82666}
   m_SizeDelta: {x: 228.25, y: 27.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8806454878424967887
@@ -1687,7 +1687,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3139153660386590472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000018626}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1695,8 +1695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.345, y: -15.95}
-  m_SizeDelta: {x: 170, y: 31.9}
+  m_AnchoredPosition: {x: 170.345, y: -15.355}
+  m_SizeDelta: {x: 208.4, y: 30.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &806513326297709577
 CanvasRenderer:
@@ -1739,7 +1739,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Audio settings
+  m_Text: Garso nustatymai
 --- !u!1 &3262068212897899436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Users Height
+  m_Text: "\u016Agis"
 --- !u!1 &4049024008689566472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,8 +2423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.1900635, y: 0.9911194}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -1, y: 3.46}
+  m_SizeDelta: {x: 215.19, y: 34.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &274241339286340518
 CanvasRenderer:
@@ -2467,7 +2467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Pagrindinis meniu
 --- !u!1 &4353407445565489091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,7 +2667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.345, y: -210.5}
+  m_AnchoredPosition: {x: 170.345, y: -209.905}
   m_SizeDelta: {x: 225.3, y: 29.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &567726850100996454
@@ -2711,7 +2711,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Microphone:'
+  m_Text: Mikrofonas
 --- !u!1 &4839611500016058339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,7 +2853,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Movement speed
+  m_Text: "Jud\u0117jimo greitis"
 --- !u!1 &5984621783450302462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,7 +2932,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: Nustatymai
 --- !u!1 &6074740965436119848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,7 +3047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Paused
+  m_Text: "Pauz\u0117"
 --- !u!1 &6624709671078636385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,7 +3196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.345, y: -284.195}
+  m_AnchoredPosition: {x: 170.345, y: -283.79834}
   m_SizeDelta: {x: 273.96, y: 52.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1719489551439459138
@@ -3772,7 +3772,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: Atgal
 --- !u!1 &7664799557279048537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,7 +4246,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9155899069450798269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00034285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4255,7 +4255,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 147.49, y: -16.75}
-  m_SizeDelta: {x: 140, y: 33.5}
+  m_SizeDelta: {x: 217.49, y: 33.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6803946228450564695
 CanvasRenderer:
@@ -4298,7 +4298,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game settings
+  m_Text: "\u017Daidimo nustatymai"
 --- !u!1001 &2200361334412819180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5109,7 +5109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969571752666551114, guid: 657321a07c3561043af55547ec4b0ed7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -126.78
+      value: -125.986664
       objectReference: {fileID: 0}
     - target: {fileID: 8969571752666551114, guid: 657321a07c3561043af55547ec4b0ed7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
