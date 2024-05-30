@@ -10,6 +10,7 @@ public class NpcEventHandler : MonoBehaviour
     public static event AskEvent QuestionEvent;
 
 
+
     public static void GenerateQuestion(string snippet)
     {
         GenerationEvent(snippet);

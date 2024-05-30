@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wpm: 0
   fillerWC: 0
+  lookTimers: {fileID: 0}
   textBox: {fileID: 0}
   textBoxWPM: {fileID: 0}
   startStopButton: {fileID: 0}
@@ -189,6 +190,7 @@ MonoBehaviour:
   LonglookAway: 0
   distanceSum: 0
   point_mod: 1
+  yeet_points: 0.1
   TimeLookedAtTextUI: {fileID: 0}
 --- !u!1 &619824131128485066
 GameObject:

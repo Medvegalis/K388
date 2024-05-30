@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,19 +12,20 @@ public class LookTimers : MonoBehaviour
 	public bool LonglookAway = false;
 	public float distanceSum = 0.0f;
 	public float point_mod = 1.0f;
+	public float yeet_points = 0.1f;
 
 	private float currentLookTime = 0.0f;
 	private float currentLookAwayTime = 0.0f;
-	private Vector3 vect;
-	private bool vect_exists = false;
+	private Vector3 lastHitPoint;
+	private bool lastHitPointExists = false;
 
 	[SerializeField] private Text TimeLookedAtTextUI;
 
 	void Update()
 	{
 		Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
 		RaycastHit hit;
+
 		if (Physics.Raycast(ray, out hit))
 		{
 			GameObject hitObject = hit.collider.gameObject;
@@ -34,19 +34,17 @@ public class LookTimers : MonoBehaviour
 			{
 				currentLookAwayTime = 0f;
 				currentLookTime += Time.deltaTime;
-				TimeLookedAtTextUI.text = currentLookTime.ToString();
+				TimeLookedAtTextUI.text = currentLookTime.ToString("F2");
 
 				if (currentLookTime >= lookTimeThreshold && currentLookTime < lookTimeMax)
 				{
 					LonglookAway = false;
-					Debug.Log("Player has been looking at one of the target objects");
-					point_mod = 1+((float) currentLookTime /lookTimeMax);
+					point_mod = 1 + (currentLookTime / lookTimeMax);
 				}
 				else if (currentLookTime >= lookTimeMax)
 				{
 					LonglookAway = false;
-					Debug.Log("Player has been looking too long at one of the target objects");
-					point_mod = 1;
+					point_mod = Mathf.Max(0, point_mod - yeet_points * Time.deltaTime);
 				}
 			}
 			else
@@ -57,22 +55,37 @@ public class LookTimers : MonoBehaviour
 				if (currentLookAwayTime >= lookAwayThreshold)
 				{
 					LonglookAway = true;
-					Debug.Log("Player has looked away from all target objects");
 				}
 			}
 
-			if (vect_exists)
+			if (lastHitPointExists)
 			{
-				float distance = Vector3.Distance(vect, ray.origin);
+				float distance = Vector3.Distance(lastHitPoint, hit.point);
 				distanceSum += point_mod * distance;
 			}
 
-			vect = ray.origin;
-			vect_exists = true;
+			lastHitPoint = hit.point;
+			lastHitPointExists = true;
 		}
+		else
+		{
+			currentLookTime = 0.0f;
+			currentLookAwayTime += Time.deltaTime;
+
+			if (currentLookAwayTime >= lookAwayThreshold)
+			{
+				LonglookAway = true;
+			}
+
+			lastHitPointExists = false;
+		}
+
+		//Debug.Log($"Current Look Time: {currentLookTime}, Current Look Away Time: {currentLookAwayTime}, Distance Sum: {distanceSum}, Point Mod: {point_mod}");
 	}
-	public float DistanceSum()
+
+	public float DistanceSum
 	{
-		return distanceSum;
+		get { return distanceSum; }
+		set { distanceSum=value; }
 	}
 }
