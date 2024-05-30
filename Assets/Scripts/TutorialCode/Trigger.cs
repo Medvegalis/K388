@@ -40,7 +40,7 @@ public class Trigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the collider is the player
-        if (other.CompareTag("VRPlayer"))
+        if (other.CompareTag("Player"))
         {
             // Activate the object if it's not already active
             if (tipActive != null && !tipActive.activeSelf)
@@ -57,7 +57,7 @@ public class Trigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Check if the object exiting the collider is the player
-        if (other.CompareTag("VRPlayer"))
+        if (other.CompareTag("Player"))
         {
             // Deactivate the object if it's active
             if (tipActive != null && tipActive.activeSelf)
