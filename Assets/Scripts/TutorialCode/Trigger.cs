@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,9 +28,12 @@ public class Trigger : MonoBehaviour
         {
             if (time == count)
             {
-                ShowPopup(text1[Textnumber]);
-                Textnumber++;
-                time = 0;
+                if (text1.Count() > Textnumber)
+                {
+                    ShowPopup(text1[Textnumber]);
+                    Textnumber++;
+                    time = 0;
+                }
             }
             else 
             { 
