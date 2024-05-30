@@ -175,6 +175,7 @@ public class SpeechToText : MonoBehaviour
 
         if (res.Text.Length>1 && res.Text.Split(',').Length<1000)
         {
+
             NpcEventHandler.GenerateQuestion(res.Text);
             Debug.Log(res.Text.ToString());
             responses.Add(res.Text.ToString());
