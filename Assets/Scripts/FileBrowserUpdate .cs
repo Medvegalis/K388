@@ -38,7 +38,7 @@ public class FileBrowserUpdate : MonoBehaviour
             else
             {
                 string filename = format == "txt" ? "speech" : "slides";
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(),"Assets" ,"Resources",string.Format("{0}.{1}"),filename,format);
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(),"Assets" ,"Resources",string.Format("{0}.{1}",filename,format));
                 File.WriteAllBytes(filePath, uwr.downloadHandler.data);
                 //Debug.Log("File saved to: " + filePath);
             }
