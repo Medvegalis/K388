@@ -42,8 +42,9 @@ public class Trigger : MonoBehaviour
         // Check if the object entering the collider is the player
         if (other.CompareTag("Player"))
         {
+            Debug.Log("PlayerEnters");
             // Activate the object if it's not already active
-            if (tipActive != null && !tipActive.activeSelf)
+            if (!tipActive.activeSelf)
             {
                 popupActive = true;
                 tipActive.SetActive(true);
@@ -59,8 +60,9 @@ public class Trigger : MonoBehaviour
         // Check if the object exiting the collider is the player
         if (other.CompareTag("Player"))
         {
+            Debug.Log("PlayerExits");
             // Deactivate the object if it's active
-            if (tipActive != null && tipActive.activeSelf)
+            if (tipActive.activeSelf)
             {
                 Textnumber = 1;
                 tipActive.SetActive(false);
