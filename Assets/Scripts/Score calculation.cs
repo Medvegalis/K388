@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Scorecalculation : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Scorecalculation : MonoBehaviour
 	[SerializeField] public Text SpeechScoreTextui;
     [SerializeField] public Text DistanceScoreTextui;
     [SerializeField] private LookTimers lookTimers;
-	
+	private bool started = false;
 	private int idealWPMlow = 40;
 	private int idealWPMhigh = 100;
 	private int idealVolumeLow = 30;
@@ -70,6 +71,16 @@ public class Scorecalculation : MonoBehaviour
 		score = (float)(speechScore * 0.6 + volumeScore * 0.3 + distScore * 0.1);
 		Debug.Log("Total score: " + score);
 		TotalScoreTextui.text = score.ToString();
-	}
+		if (speechScript.end == true)
+		{
+			EndGame(score);
+		}
+    }
+    void EndGame(float finalScore)
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+        ScoreManager.Instance.AddScore(finalScore, levelName);
+        ScoreManager.Instance.SaveScores();
+    }
 
 }

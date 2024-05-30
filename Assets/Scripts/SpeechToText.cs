@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 public class SpeechToText : MonoBehaviour
 {
     private AudioClip clip;
-    bool recording;
+    private bool recording;
     string api_key;
     private readonly string fileName = "output.wav";
     private OpenAIApi openai;
@@ -21,8 +21,9 @@ public class SpeechToText : MonoBehaviour
     private int numberOfResponses;
     public double wpm;
     public int fillerWC;
+    public bool end;
 
-	[SerializeField] private LookTimers lookTimers;
+    [SerializeField] private LookTimers lookTimers;
 	[SerializeField] private Text textBox;
     [SerializeField] private Text textBoxWPM;
     private XRIDefaultInputActions controls;
@@ -49,8 +50,8 @@ public class SpeechToText : MonoBehaviour
         fillerWC = 0;
         responses = new List<string>();
         recording = false;
-
-        if(startStopButton != null)
+        end = false;
+        if (startStopButton != null)
             startStopButton.onClick.AddListener(() => ButtonAction());
 
 
@@ -142,7 +143,7 @@ public class SpeechToText : MonoBehaviour
     {
         Microphone.End(null);
         recording = false;
-
+        end = true;
         byte[] data = Samples.Whisper.SaveWav.Save(fileName, clip);
 
         var req = new CreateAudioTranscriptionsRequest
