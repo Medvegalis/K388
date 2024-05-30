@@ -29,17 +29,14 @@ public class Point
 
 public class FirebaseDatabaseManager : MonoBehaviour
 {
-	string userId;
 	DatabaseReference reference;
 	int index = 0;
 	List<Point> points = new List<Point>();
-	int algor_iter = 50;
 	Point c1 = new Point(50.0, 1.0);
 	Point c2 = new Point(60.0, 2.0);
-    [SerializeField] private Text uiText;
-    void Start()
+	[SerializeField] private Text uiText;
+	void Start()
 	{
-		userId = SystemInfo.deviceUniqueIdentifier;
 		reference = FirebaseDatabase.DefaultInstance.RootReference;
 
 	}
@@ -131,23 +128,24 @@ public class FirebaseDatabaseManager : MonoBehaviour
 						 double HR = 60 / ((double)value / 1000);
 						 Point point1 = new Point(HR, index);
 						 points.Add(point1);
-						 Simple_Algo(c1, c2, points, index);
+						 for (int r = 0; r < 3; r++)
+						 {
+							 Simple_Algo(c1, c2, points, index);
+							 double temp_hr = 0;
+							 double temp_time = 0;
+							 Change_Centre(points, c1, "0", ref temp_hr, ref temp_time);
+							 c1 = new Point(temp_hr, temp_time);
+							 temp_hr = 0;
+							 temp_time = 0;
+							 Change_Centre(points, c2, "1", ref temp_hr, ref temp_time);
+							 c2 = new Point(temp_hr, temp_time);
+						 }
 						 index++;
-						 double temp_hr = 0;
-						 double temp_time = 0;
-						 Change_Centre(points, c1, "0", ref temp_hr, ref temp_time);
-						 c1 = new Point(temp_hr, temp_time);
-						 temp_hr = 0;
-						 temp_time = 0;
-						 Change_Centre(points, c2, "1", ref temp_hr, ref temp_time);
-						 c2 = new Point(temp_hr, temp_time);
-						 //Debug.Log($"c1=({Math.Round(c1.HeartRate, 2)};{c1.Time}); c2=({Math.Round(c2.HeartRate, 2)};{c2.Time})");
 						 Point lpt = points[points.Count() - 1];
-						 //Debug.Log($"Added_point: {Math.Round(lpt.HeartRate,2)};{lpt.Time};{lpt.Classif}");
-						 Debug.Log($"Speech_Condition: {Detect_Class(c1,c2,lpt)}");
-                         uiText.text = "" +  Detect_Class(c1, c2, lpt);
+						 Debug.Log($"Speech_Condition: {Detect_Class(c1, c2, lpt)}");
+						 uiText.text = "" + Detect_Class(c1, c2, lpt);
 
-                     }
+					 }
 				 }
 			 }
 		 });

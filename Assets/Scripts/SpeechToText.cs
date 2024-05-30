@@ -12,20 +12,18 @@ using System.Text.RegularExpressions;
 public class SpeechToText : MonoBehaviour
 {
     private AudioClip clip;
-    private byte[] bytes;
     bool recording;
     string api_key;
     private readonly string fileName = "output.wav";
     private OpenAIApi openai;
-    private float recordDuration = 60f; // Duration to record in seconds
-    private float waitTime = 10f; // Time between recordings (10 for demo, 30 for production)
-    private float recordTimer = 0f;
+    private float recordDuration = 60f;
     private List<string> responses;
     private int numberOfResponses;
     public double wpm;
     public int fillerWC;
 
-    [SerializeField] private Text textBox;
+	[SerializeField] private LookTimers lookTimers;
+	[SerializeField] private Text textBox;
     [SerializeField] private Text textBoxWPM;
     private XRIDefaultInputActions controls;
 
@@ -51,7 +49,6 @@ public class SpeechToText : MonoBehaviour
         fillerWC = 0;
         responses = new List<string>();
         recording = false;
-        recordTimer = Time.time + 5f; //Time until first recording(5 for demo, 10-15 for production)
 
         if(startStopButton != null)
             startStopButton.onClick.AddListener(() => ButtonAction());
@@ -62,18 +59,6 @@ public class SpeechToText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Recording makes unity freeze for a second. Turned it off for demonstration
-        //if (Time.time >= recordTimer)
-        //{
-        //    Debug.Log("Started");
-        //    StartRecording();
-        //    recordTimer = Time.time + recordDuration + waitTime;
-        //}
-        //if (recording && Time.time >= recordTimer - recordDuration)
-        //{
-        //    Debug.Log("Stopped");
-        //    StopRecording();
-        //}
 
         if (Input.GetKeyDown(KeyCode.Tab)&&!recording)
         {
@@ -144,7 +129,7 @@ public class SpeechToText : MonoBehaviour
 
     private void StartRecording()
     {
-        if (AudioManager.instance.micDeviceName != "")
+		if (AudioManager.instance.micDeviceName != "")
             clip = Microphone.Start(AudioManager.instance.micDeviceName, false, Convert.ToInt32(recordDuration), 44100);
         else
             clip = Microphone.Start(null, false, Convert.ToInt32(recordDuration), 44100);
@@ -175,7 +160,6 @@ public class SpeechToText : MonoBehaviour
 
         if (res.Text.Length>1 && res.Text.Split(',').Length<1000)
         {
-
             NpcEventHandler.GenerateQuestion(res.Text);
             Debug.Log(res.Text.ToString());
             responses.Add(res.Text.ToString());
@@ -185,7 +169,7 @@ public class SpeechToText : MonoBehaviour
 
         buttonText.text = "Pradeti kalba";
         GetComponent<Scorecalculation>().CalculateScore();
-
+        lookTimers.DistanceSum = 0;
         if(startQuestionsButton != null)
             startQuestionsButton.interactable = true;
 
