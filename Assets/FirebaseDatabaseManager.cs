@@ -10,21 +10,14 @@ using static FirebaseDatabaseManager;
 
 public class Point
 {
-	private double heartrate;
-	private double time;
-	private string classif;
+	public double Heartrate { get; set; }
+	public double Timepoint { get; set; }
+	public string Classif { get; set; }
 	public Point(double heartrate, double time)
 	{
-		this.heartrate = heartrate;
-		this.time = time;
+		Heartrate = heartrate;
+		Timepoint = time;
 	}
-	public string Classif
-	{
-		get { return classif; }
-		set { classif = value; }
-	}
-	public double Time { get { return time; } }
-	public double HeartRate { get { return heartrate; } }
 }
 
 public class FirebaseDatabaseManager : MonoBehaviour
@@ -45,68 +38,50 @@ public class FirebaseDatabaseManager : MonoBehaviour
 		ReadDatabase();
 	}
 
-	static public void Print_Array(List<Point> pts, int index)
-	{
-
-		string temp = "";
-		temp += $"[";
-		for (int i = 0; i < index; i++)
-		{
-			Point pt = pts[i];
-			temp += $"({pt.HeartRate};{pt.Time};{pt.Classif})\n";
-		}
-		temp += $"]";
-	}
-
 	static public double Dist_Point(Point p1, Point p2)
 	{
-		return Math.Sqrt(Math.Pow(p1.Time - p2.Time, 2) + Math.Pow(p1.HeartRate - p2.HeartRate, 2));
+		double t1 = p1.Timepoint - p2.Timepoint;
+		double h1 = p1.Heartrate - p2.Heartrate;
+		return Math.Sqrt(t1*t1 + h1*h1);
 	}
 
-	static public void Simple_Algo(Point c1, Point c2, List<Point> pts, int index)
+	static public void Classification(Point c1, Point c2, List<Point> pts)
 	{
-		for (int i = 0; i <= index; i++)
+		foreach(var pt in pts)
 		{
-			Point pt = pts[i];
 			double d1 = Dist_Point(pt, c1);
 			double d2 = Dist_Point(pt, c2);
-			if (d1 < d2)
+			if(d1<d2)
 				pt.Classif = "0";
-			else pt.Classif = "1";
-			pts[i] = pt;
+			else
+				pt.Classif = "1";
 		}
-
 	}
 
-	public static void Change_Centre(List<Point> points, Point c, string cls, ref double temp_hr, ref double temp_time)
+	public static void Change_Centre(List<Point> points, Point c, string cls)
 	{
 		var cpts = points.Where(p => p.Classif == cls);
 		if (cpts.Count() > 0)
 		{
-			foreach (var pt in cpts)
-			{
-				temp_hr += pt.HeartRate;
-				temp_time += pt.Time;
-			}
-			temp_hr = (double)temp_hr / cpts.Count();
-			temp_time = (double)temp_time / cpts.Count();
-		}
-		else
-		{
-			temp_hr = c.HeartRate;
-			temp_time = c.Time;
+			double avg_hr = cpts.Average(p => p.Heartrate);
+			double avg_time = cpts.Average(p => p.Timepoint);
+			c.Heartrate = avg_hr;
+			c.Timepoint = avg_time;
 		}
 	}
 
-	public static string Detect_Class(Point c1, Point c2, Point lpt)
+	public static string Detect_Class(Point c1, Point c2, Point last_pt)
 	{
-		double temp1 = Math.Abs(c1.HeartRate - lpt.HeartRate);
-		double temp2 = Math.Abs(c2.HeartRate - lpt.HeartRate);
+		double maxhr = Math.Max(c1.Heartrate, c2.Heartrate);
+		double minhr = Math.Min(c1.Heartrate, c2.Heartrate);
+		double temp1 = Math.Abs(minhr - last_pt.Heartrate);
+		double temp2 = Math.Abs(maxhr - last_pt.Heartrate);
 		if (temp1 < temp2)
-			return "Normal";
+			return "Normalus";
 		else if (temp1 > temp2)
-			return "Stressed";
-		return "Not_Detected";
+			return "Stresuojantis";
+		else
+			return "<Renkame_duomenis>";
 	}
 
 	public void ReadDatabase()
@@ -126,24 +101,16 @@ public class FirebaseDatabaseManager : MonoBehaviour
 					 if (double.TryParse(snapshot.Value.ToString(), out double value))
 					 {
 						 double HR = 60 / ((double)value / 1000);
-						 Point point1 = new Point(HR, index);
-						 points.Add(point1);
+						 Point last_point = new Point(HR, index++);
+						 points.Add(last_point);
 						 for (int r = 0; r < 3; r++)
 						 {
-							 Simple_Algo(c1, c2, points, index);
-							 double temp_hr = 0;
-							 double temp_time = 0;
-							 Change_Centre(points, c1, "0", ref temp_hr, ref temp_time);
-							 c1 = new Point(temp_hr, temp_time);
-							 temp_hr = 0;
-							 temp_time = 0;
-							 Change_Centre(points, c2, "1", ref temp_hr, ref temp_time);
-							 c2 = new Point(temp_hr, temp_time);
+							 Classification(c1,c2,points);
+							 Change_Centre(points, c1, "0");
+							 Change_Centre(points, c2, "1");
 						 }
-						 index++;
-						 Point lpt = points[points.Count() - 1];
-						 Debug.Log($"Speech_Condition: {Detect_Class(c1, c2, lpt)}");
-						 uiText.text = "" + Detect_Class(c1, c2, lpt);
+						 string final_class = Detect_Class(c1, c2, last_point);
+						 uiText.text = final_class;
 
 					 }
 				 }
